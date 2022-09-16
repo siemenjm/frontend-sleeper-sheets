@@ -2,7 +2,7 @@
 Sleeper Sheets is a fantasy football app that consumes the Sleeper API to grab a user's Sleeper teams, leagues, stats, projections, etc. and display that data to the user using React. Sleeper currently has their own web application that does all of this, but I wanted to display that information in my own way and improve upon the design.
 
 ## Wireframe
-![Main Screen](https://github.com/siemenjm/)
+![Main Screen](https://github.com/siemenjm/frontend-sleeper-sheets/blob/1352447957791c3521203682c19a0416b30ca388/proposal_screenshots/main_wireframs.png)
 
 ## MVP User Stories
 As a user, I want to be able to:
@@ -122,11 +122,11 @@ All stats and projections will be retrieved via <code>GET https://api.sleeper.ap
 ## Component Hierarchy
 For the Sidebar, InfoHeader, and PageHeader:
 
-![Sidebar, InfoHeader, PageHeader Component Hierarchy](https://github.com/siemenjm/)
+![Sidebar, InfoHeader, PageHeader Component Hierarchy](https://github.com/siemenjm/frontend-sleeper-sheets/blob/1352447957791c3521203682c19a0416b30ca388/proposal_screenshots/component_hierarchy1.png)
 
 For the Pages:
 
-![Pages Component Hierarchy](https://github.com/siemenjm/)
+![Pages Component Hierarchy](https://github.com/siemenjm/frontend-sleeper-sheets/blob/1352447957791c3521203682c19a0416b30ca388/proposal_screenshots/component_hierarchy2.png)
 
 
 ## Stretch Goals
