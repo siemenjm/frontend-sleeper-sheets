@@ -1,3 +1,4 @@
+import './styles/main.css';
 import InfoHeader from "components/InfoHeader";
 import PageHeader from "components/PageHeader";
 import Pages from "components/Pages";
