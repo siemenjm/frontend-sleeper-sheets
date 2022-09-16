@@ -2,12 +2,12 @@ import { useState } from "react";
 import User from "./User";
 import UserForm from "./UserForm";
 
-export default function Sidebar(props) {
-    const BASE_URL = 'https://api.sleeper.app/v1/user/';
+export default function Sidebar({BASE_URL, user, setUser}) {
+    const USER_URL = `${BASE_URL}user/`;
     
     const initUserForm = {username: ''};
     const [userForm, setUserForm] = useState(initUserForm);
-    const [user, setUser] = useState(null);
+    // const [user, setUser] = useState(null);
 
     function handleChange(e) {
         setUserForm({...userForm, [e.target.name]: e.target.value});
@@ -21,7 +21,7 @@ export default function Sidebar(props) {
     }
 
     async function getUser(username) {
-        const URL = `${BASE_URL}${username}`;
+        const URL = `${USER_URL}${username}`;
         try {
             const response = await fetch(URL);
             const userData = await response.json();
