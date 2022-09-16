@@ -1,3 +1,7 @@
 export default function App() {
-  return <></>
+    return (
+        <>
+            <h1>App Comp</h1>
+        </>
+    );
 }
