@@ -1,21 +1,23 @@
 import { useState } from "react";
+import User from "./User";
+import UserForm from "./UserForm";
 
 export default function Sidebar(props) {
     const BASE_URL = 'https://api.sleeper.app/v1/user/';
     
-    const initForm = {username: ''};
-    const [form, setForm] = useState(initForm);
+    const initUserForm = {username: ''};
+    const [userForm, setUserForm] = useState(initUserForm);
     const [user, setUser] = useState(null);
 
     function handleChange(e) {
-        setForm({...form, [e.target.name]: e.target.value});
+        setUserForm({...userForm, [e.target.name]: e.target.value});
     }
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        getUser(form.username);
-        setForm(initForm);
+        getUser(userForm.username);
+        setUserForm(initUserForm);
     }
 
     async function getUser(username) {
@@ -31,41 +33,17 @@ export default function Sidebar(props) {
         }
     }
 
-    function loading() {
-        return (
-            <>
-                <p>Loading user data...</p>
-            </>
-        );
-    }
-
-    function loaded() {
-        return (
-            <div className="user-info">
-                <h3>Current User</h3>
-                <p className="user-avatar">{user.avatar}</p>
-                <p className="username">{user.username}</p>
-            </div>
-        );
-    }
-
     return (
         <>
             <div className="sidebar">
                 <h2>Sidebar Comp</h2>
                 <div className="app-info"></div>
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="username">Enter Username</label>
-                    <input
-                        type="text"
-                        name="username"
-                        id="username"
-                        value={form.username}
-                        onChange={handleChange}
-                    />
-                    <button type="submit">Get User Info</button>
-                </form>
-                {user ? loaded() : loading()}
+                <UserForm
+                    handleSubmit={handleSubmit}
+                    handleChange={handleChange}
+                    userForm={userForm}
+                />
+                {user ? <User user={user}/> : ''}
             </div>
         </>
     );
