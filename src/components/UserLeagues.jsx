@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { LeagueContext } from "context/LeagueContext";
+import { useContext, useEffect, useState } from "react";
 import League from "./League";
 
 export default function UserLeagues({userId}) { 
     const BASE_URL = 'https://api.sleeper.app/v1/user/';
     
     const [leagueList, setLeagueList] = useState(null);
+    const [infoLeague, setInfoLeague] = useContext(LeagueContext);
 
     async function getLeagues(userId) {
         const URL = `${BASE_URL}${userId}/leagues/nfl/2022`;
@@ -13,6 +15,7 @@ export default function UserLeagues({userId}) {
             const allLeagues = await response.json();
 
             setLeagueList(allLeagues);
+            setInfoLeague(allLeagues[0]);
         } catch(err) {
             console.log(err);
         }

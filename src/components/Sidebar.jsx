@@ -7,7 +7,6 @@ export default function Sidebar({BASE_URL, user, setUser}) {
     
     const initUserForm = {username: ''};
     const [userForm, setUserForm] = useState(initUserForm);
-    // const [user, setUser] = useState(null);
 
     function handleChange(e) {
         setUserForm({...userForm, [e.target.name]: e.target.value});
@@ -25,7 +24,6 @@ export default function Sidebar({BASE_URL, user, setUser}) {
         try {
             const response = await fetch(URL);
             const userData = await response.json();
-            console.log(userData);
             
             setUser(userData);
         } catch(err) {
