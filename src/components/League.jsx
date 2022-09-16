@@ -1,7 +1,9 @@
-export default function League({league}) { 
+import Avatar from "./Avatar";
+
+export default function League({league}) {
     return ( 
         <div className="league">
-            <p className="league-avatar">Avatar: {league.avatar}</p>
+            <Avatar avatar={league.avatar} type='league'/>
             <p className="league-name">Name: {league.name}</p>
         </div>
     );
