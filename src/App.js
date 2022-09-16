@@ -8,8 +8,10 @@ export default function App() {
         <>
             <Sidebar />
             <InfoHeader />
-            <PageHeader />
-            <Pages />
+            <section className="page">
+                <PageHeader />
+                <Pages />
+            </section>
         </>
     );
 }
