@@ -9,6 +9,7 @@ export default function UserForm({handleSubmit, handleChange, userForm}) {
                 id="username"
                 value={userForm.username}
                 onChange={handleChange}
+                required
             />
             <button type="submit">Get User Info</button>
         </form>
