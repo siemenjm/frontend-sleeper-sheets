@@ -1,7 +1,9 @@
 export default function InfoHeader(props) {
     return (
         <>
-            <h1>InfoHeader Comp</h1>
+            <div className="info-header">
+                <h2>InfoHeader</h2>
+            </div>
         </>
     );
 }

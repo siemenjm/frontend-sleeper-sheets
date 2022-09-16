@@ -1,7 +1,7 @@
 export default function Pages(props) {
     return (
         <>
-            <h1>Pages Comp</h1>
+            <h2>Pages</h2>
         </>
     );
 }

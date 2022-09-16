@@ -1,7 +1,9 @@
 export default function PageHeader(props) {
     return (
         <>
-            <h1>PageHeader Comp</h1>
+            <div className="page-header">
+                <h2>PageHeader</h2>
+            </div>
         </>
     );
 }
