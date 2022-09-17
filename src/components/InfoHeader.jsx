@@ -1,6 +1,6 @@
 import { LeagueContext } from "context/LeagueContext";
 import { useContext } from "react";
-import League from "./League";
+import InfoLeague from "./League";
 
 export default function InfoHeader(props) {
     const [infoLeague] = useContext(LeagueContext);
@@ -15,7 +15,7 @@ export default function InfoHeader(props) {
 
     return (
         <div className="info-header">
-            <League league={infoLeague}/>
+            <InfoLeague league={infoLeague}/>
         </div>
     );
 }

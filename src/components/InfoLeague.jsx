@@ -1,8 +1,8 @@
 import Avatar from "./Avatar";
 
-export default function League({handleClick, league}) {
+export default function InfoLeague({league}) {
     return ( 
-        <div onClick={handleClick} value={league} className="league">
+        <div className="league">
             <Avatar avatar={league.avatar} type='league'/>
             <p className="league-name">Name: {league.name}</p>
         </div>
