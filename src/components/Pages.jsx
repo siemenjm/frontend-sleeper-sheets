@@ -68,7 +68,7 @@ export default function Pages(props) {
         <>
             <Routes>
                 <Route path={`/matchup/`} element={<MatchupTab userMatchup={userMatchup[0]} opponentMatchup={opponentMatchup[0]} />} />
-                <Route path={`/team/`} element={<TeamTab />} />
+                <Route path={`/team/`} element={<TeamTab userMatchup={userMatchup[0]} />} />
                 <Route path={`/league/`} element={<LeagueTab />} />
             </Routes>
         </>

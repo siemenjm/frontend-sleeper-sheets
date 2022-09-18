@@ -1,5 +1,10 @@
-export default function TeamTab(props) {
+export default function TeamTab({ userMatchup }) {
     return (
-        <h2>TeamTab Page</h2>
+        <div className="team-tab">
+            <div className="user-stats">
+                <h2>user roster_id: {userMatchup.roster_id}</h2>
+                <h2>user points: {userMatchup.points}</h2>
+            </div>
+        </div>
     );
 }

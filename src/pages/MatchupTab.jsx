@@ -1,4 +1,4 @@
-export default function MatchupTab({ userMatchup, opponentMatchup}) {
+export default function MatchupTab({ userMatchup, opponentMatchup }) {
     return (
         <div className="matchup-tab">
             <div className="user-stats">
