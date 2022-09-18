@@ -1,7 +1,7 @@
 export default function Avatar({avatar, type}) { 
     if (!avatar) {
         return(
-            <img className="avatar" src={'https://picsum.photos/50'} alt={`${type} avatar`}/>
+            <img className="avatar" src={'https://sleepercdn.com/images/v2/icons/league/nfl/lilac.png'} alt={`${type} avatar`}/>
         );
     }
 
