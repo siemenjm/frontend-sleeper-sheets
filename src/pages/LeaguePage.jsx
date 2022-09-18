@@ -1,30 +1,11 @@
 import InfoHeader from "components/InfoHeader";
 import PageHeader from "components/PageHeader";
 import Pages from "components/Pages";
-import { LeagueContext } from "context/LeagueContext";
-import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Context } from "context/Context";
+import { useContext } from "react";
 
 export default function LeaguePage({BASE_URL, user}) {
-    const { id } = useParams();
-    const LEAGUE_URL = `${BASE_URL}/league/${id}`;
-
-    const {league, setLeague} = useContext(LeagueContext);
-
-    // async function getLeague() {
-    //     try {
-    //         const response = await fetch(LEAGUE_URL);
-    //         const leagueData = await response.json();
-
-    //         setLeague(leagueData);
-    //     } catch(err) {
-    //         console.log(err);
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     getLeague();
-    // }, []);
+    const { league } = useContext(Context);
 
     if (!league) {
         return <h2>Loading league data...</h2>;

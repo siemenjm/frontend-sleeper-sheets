@@ -1,4 +1,4 @@
-import { LeagueContext } from "context/LeagueContext";
+import { Context } from "context/Context";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import League from "./League";
@@ -8,7 +8,7 @@ export default function UserLeagues({userId}) {
     const navigate = useNavigate();
     
     const [leagueList, setLeagueList] = useState(null);
-    const { setLeague } = useContext(LeagueContext);
+    const { setLeague, subPage } = useContext(Context);
 
     async function getLeagues(userId) {
         const URL = `${BASE_URL}${userId}/leagues/nfl/2022`;
@@ -17,7 +17,7 @@ export default function UserLeagues({userId}) {
             const allLeagues = await response.json();
 
             setLeague(allLeagues[0]);
-            navigate(`/league/${allLeagues[0].league_id}`);
+            navigate(`/league/${allLeagues[0].league_id}/${subPage}`);
 
             setLeagueList(allLeagues);
         } catch(err) {
@@ -34,7 +34,7 @@ export default function UserLeagues({userId}) {
     }
 
     const displayedLeagues = leagueList.map((league) => {
-        return (<League league={league} setLeague={setLeague} key={league.league_id}/>);
+        return (<League league={league} setLeague={setLeague} subPage={subPage} key={league.league_id}/>);
     });
 
     return ( 
