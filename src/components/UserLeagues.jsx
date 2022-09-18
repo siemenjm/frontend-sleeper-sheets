@@ -8,7 +8,7 @@ export default function UserLeagues({userId}) {
     const navigate = useNavigate();
     
     const [leagueList, setLeagueList] = useState(null);
-    const {league, setLeague} = useContext(LeagueContext);
+    const { setLeague } = useContext(LeagueContext);
 
     async function getLeagues(userId) {
         const URL = `${BASE_URL}${userId}/leagues/nfl/2022`;
@@ -34,7 +34,7 @@ export default function UserLeagues({userId}) {
     }
 
     const displayedLeagues = leagueList.map((league) => {
-        return (<League league={league} key={league.league_id}/>);
+        return (<League league={league} setLeague={setLeague} key={league.league_id}/>);
     });
 
     return ( 
