@@ -1,9 +1,7 @@
 import './styles/main.css';
-import InfoHeader from "components/InfoHeader";
-import PageHeader from "components/PageHeader";
-import Pages from "components/Pages";
 import Sidebar from "components/Sidebar";
 import { useState } from 'react';
+import Main from 'components/Main';
 
 const BASE_URL = 'https://api.sleeper.app/v1/';
 
@@ -13,11 +11,12 @@ export default function App() {
     return (
         <>
             <Sidebar BASE_URL={BASE_URL} user={user} setUser={setUser}/>
-            <InfoHeader />
+            <Main />
+            {/* <InfoHeader />
             <section className="page">
                 <PageHeader />
                 <Pages />
-            </section>
+            </section> */}
         </>
     );
 }

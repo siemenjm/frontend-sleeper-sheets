@@ -20,6 +20,10 @@
     border: 5px solid green;
 }
 
+main {
+    grid-area: 1 / 2 / span 2 / span 1;
+}
+
 .info-header {
     grid-area: 1 / 2 / span 1 / span 1;
     border: 5px solid blue;
