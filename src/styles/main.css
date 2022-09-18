@@ -12,25 +12,28 @@
     min-height: 100vh;
     display: grid;
     grid-template-columns: 20% 1fr;
-    grid-template-rows: 20% 1fr;
+    grid-template-rows: 1fr;
 }
 
 .sidebar {
-    grid-area: 1 / 1 / span 2 / span 1;
+    grid-area: 1 / 1 / span 1 / span 1;
     border: 5px solid green;
 }
 
 main {
-    grid-area: 1 / 2 / span 2 / span 1;
+    grid-area: 1 / 2 / span 1 / span 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20% 1fr;
 }
 
 .info-header {
-    grid-area: 1 / 2 / span 1 / span 1;
+    grid-area: 1 / 1 / span 1 / span 1;
     border: 5px solid blue;
 }
 
-.page {
-    grid-area: 2 / 2 / span 1 / span 1;
+.sub-page {
+    grid-area: 2 / 1 / span 1 / span 1;
     border: 5px solid purple;
     display: flex;
     flex-direction: column;
