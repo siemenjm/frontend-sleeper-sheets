@@ -27,7 +27,7 @@ export default function UserLeagues({userId}) {
     }
 
     const displayedLeagues = leagueList.map((league) => {
-        return <League league={league} key={league.league_id}/>;
+        return (<League league={league} key={league.league_id}/>);
     });
 
     return ( 

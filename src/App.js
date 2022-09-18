@@ -11,7 +11,7 @@ export default function App() {
     return (
         <>
             <Sidebar BASE_URL={BASE_URL} user={user} setUser={setUser}/>
-            <Main />
+            <Main BASE_URL={BASE_URL} user={user}/>
             {/* <InfoHeader />
             <section className="page">
                 <PageHeader />
