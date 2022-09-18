@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { Context } from "context/Context";
+import { useContext, useState } from "react";
 import User from "./User";
 import UserForm from "./UserForm";
 
-export default function Sidebar({BASE_URL, user, setUser}) {
+export default function Sidebar(props) {
+    const { BASE_URL, user, setUser} = useContext(Context);
+
     const USER_URL = `${BASE_URL}user/`;
     
     const initUserForm = {username: ''};

@@ -13,9 +13,9 @@ export default function App() {
 
     return (
         <>
-            <Context.Provider value={{ league, setLeague, subPage, setSubPage }}>
-                <Sidebar BASE_URL={BASE_URL} user={user} setUser={setUser}/>
-                <Main BASE_URL={BASE_URL} user={user}/>
+            <Context.Provider value={{ BASE_URL, user, setUser, league, setLeague, subPage, setSubPage }}>
+                <Sidebar />
+                <Main />
             </Context.Provider>
         </>
     );
