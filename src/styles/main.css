@@ -32,7 +32,7 @@ main {
     border: 5px solid blue;
 }
 
-.sub-page {
+.tab {
     grid-area: 2 / 1 / span 1 / span 1;
     border: 5px solid purple;
     display: flex;

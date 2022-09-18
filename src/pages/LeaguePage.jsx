@@ -14,7 +14,7 @@ export default function LeaguePage({BASE_URL, user}) {
     return (
         <>
             <InfoHeader league={league}/>
-            <section className="sub-page">
+            <section className="tab">
                 <PageHeader />
                 <Pages />
             </section>
