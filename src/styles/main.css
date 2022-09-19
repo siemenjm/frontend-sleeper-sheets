@@ -50,7 +50,7 @@ main {
     width: 100%;
 }
 
-.matchup-summary {
+.matchup-summary, .matchup-details {
     display: flex;
     justify-content: space-evenly;
 }
