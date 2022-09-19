@@ -54,7 +54,7 @@ export default function Pages(props) {
         getUsers();
         getRosters();
         getMatchups();
-    }, []);
+    }, [league]);
 
     console.log('Users: ', users);
     console.log('Rosters: ', rosters);
