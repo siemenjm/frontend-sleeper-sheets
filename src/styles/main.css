@@ -47,6 +47,10 @@ main {
     border: 2px solid red;
 }
 
+.page-header > * {
+    margin: 0 1rem;
+}
+
 /* ----- Matchup Tab ----- */
 .matchup-tab {
     width: 100%;
@@ -55,4 +59,9 @@ main {
 .matchup-summary, .matchup-details {
     display: flex;
     justify-content: space-evenly;
+}
+
+.matchup-summary > *, .player-summary {
+    background-color: rgb(212, 212, 212);
+    margin: 0.5rem 0;
 }
