@@ -1,4 +1,4 @@
-import UserStarter from "./UserStarter";
+import UserPlayer from "./UserPlayer";
 
 export default function UserBenchList({ matchup }) {
     const players = matchup.players;
@@ -20,7 +20,7 @@ export default function UserBenchList({ matchup }) {
     console.log(benchPoints);
 
     const allBenchPlayers = benchPlayers.map((player, index) => {
-        return <UserStarter playerId={player} points={benchPoints[index]} key={player} />;
+        return <UserPlayer playerId={player} points={benchPoints[index]} key={player} />;
     });
 
 

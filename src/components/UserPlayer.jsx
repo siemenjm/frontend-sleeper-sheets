@@ -1,4 +1,4 @@
-export default function UserStarter({ playerId, points}) {
+export default function UserPlayer({ playerId, points}) {
     return (
         <>
             <div className="player-summary">
