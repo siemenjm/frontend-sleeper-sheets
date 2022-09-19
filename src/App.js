@@ -10,8 +10,10 @@ export default function App() {
     const [user, setUser] = useState(null);
     const [league, setLeague] = useState(null);
     const [subPage, setSubPage] = useState('matchup/');
-    const [weeklyStats, setWeeklyStats] = useState(null);
-    const [weeklyProj, setWeeklyProj] = useState(null);
+    const [weeklyData, setWeeklyData] = useState({
+        weeklyStats: null,
+        WeeklyProj: null
+    });
 
     async function getWeeklyStats() {
         const URL = `${BASE_URL}stats/nfl/regular/2022/2`;
@@ -20,7 +22,7 @@ export default function App() {
             const response = await fetch(URL);
             const allWeeklyStats = await response.json();
 
-            setWeeklyStats(allWeeklyStats);
+            return allWeeklyStats;
         } catch(err) {
             console.log(err);
         }
@@ -33,19 +35,31 @@ export default function App() {
             const response = await fetch(URL);
             const allWeeklyProj = await response.json();
 
-            setWeeklyProj(allWeeklyProj);
+            return allWeeklyProj;
         } catch(err) {
             console.log(err);
         }
     }
 
+    async function getWeeklyData() {
+        const allWeeklyStats = await getWeeklyStats();
+        const allWeeklyProj = await getWeeklyProjs();
+
+        setWeeklyData({
+            weeklyStats: allWeeklyStats,
+            weeklyProj: allWeeklyProj
+        });
+    }
+
+
+
     useEffect(() => {
-        getWeeklyStats();
+        getWeeklyData();
     }, []);
 
     return (
         <>
-            <Context.Provider value={{ BASE_URL, user, setUser, league, setLeague, subPage, setSubPage, weeklyStats, setWeeklyStats, weeklyProj, setWeeklyProj }}>
+            <Context.Provider value={{ BASE_URL, user, setUser, league, setLeague, subPage, setSubPage, weeklyData }}>
                 <Sidebar />
                 <Main />
             </Context.Provider>

@@ -2,8 +2,8 @@ import { Context } from "context/Context";
 import { useContext } from "react";
 
 export default function WRandTEStats({ player }) {
-    const { weeklyStats } = useContext(Context);
-    const playerStats = weeklyStats[player.player_id];
+    const { weeklyData } = useContext(Context);
+    const playerStats = weeklyData.weeklyStats[player.player_id];
 
     if (!playerStats) {
         return <h2>Loading stats...</h2>
