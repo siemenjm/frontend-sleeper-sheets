@@ -1,32 +1,14 @@
 import { Context } from "context/Context";
 import { useContext } from "react";
 
-export default function RBStats({ player }) {
+export default function WRandTEStats({ player }) {
     const { weeklyStats } = useContext(Context);
     const playerStats = weeklyStats[player.player_id];
 
     if (!playerStats) {
         return <h2>Loading stats...</h2>
     }
-
-    function printRushAtt() {
-        if (playerStats.rush_att > 0) {
-            return `${playerStats.rush_att} CAR`;
-        }
-    }
-
-    function printRushYards() {
-        if (playerStats.rush_yd !== 0) {
-            return `${playerStats.rush_yd} YD`;
-        }
-    }
-
-    function printRushTDs() {
-        if (playerStats.rush_td > 0) {
-            return `${playerStats.rush_td} TD`;
-        }
-    }
-
+    
     function printReceptions() {
         if (playerStats.rec_tgt > 0) {
             return `${playerStats.rec}/${playerStats.rec_tgt} REC`;
@@ -59,9 +41,6 @@ export default function RBStats({ player }) {
     }
 
     let printFuncArray = [
-        printRushAtt,
-        printRushYards,
-        printRushTDs,
         printReceptions,
         printRecYards,
         printRecTDs,
