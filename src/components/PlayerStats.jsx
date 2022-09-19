@@ -1,3 +1,4 @@
+import KStats from "./KStats";
 import RBStats from "./RBStats";
 import QBStats from "./QBStats";
 import WRandTEStats from "./WRandTEStats";
@@ -11,7 +12,9 @@ export default function PlayerStats({ player, positions }) {
         positionComponent = <RBStats player={player}/>
     } else if (positions.includes('WR') || positions.includes('TE')) {
         positionComponent = <WRandTEStats player={player}/>;
-    } 
+    } else if (positions.includes('K')) {
+        positionComponent = <KStats player={player}/>;
+    }
     
     return (
         <div className="player-stats">
