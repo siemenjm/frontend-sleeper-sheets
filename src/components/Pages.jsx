@@ -38,7 +38,7 @@ export default function Pages(props) {
     }
 
     async function getMatchups() {
-        const URL = `${BASE_URL}league/${league.league_id}/matchups/1`;
+        const URL = `${BASE_URL}league/${league.league_id}/matchups/2`;
         
         try {
             const response = await fetch(URL);
@@ -63,18 +63,6 @@ export default function Pages(props) {
     if (!users || !rosters || !matchups) {
         return <h2>Loading data...</h2>
     }
-
-    // const userRoster = rosters.filter((roster) => {
-    //     return roster.owner_id === user.user_id;
-    // })[0];
-
-    // const userMatchup = matchups.filter((matchup) => {
-    //     return userRoster.roster_id === matchup.roster_id;
-    // })[0];
-
-    // const opponentMatchup = matchups.filter((matchup) => {
-    //     return userMatchup.matchup_id === matchup.matchup_id && userRoster.roster_id !== matchup.roster_id;
-    // })[0];
 
     // get user info from users by user_id
     function getUserInfo(userId) {
@@ -124,10 +112,8 @@ export default function Pages(props) {
         return userOpponentRoster.owner_id;
     }
 
-    console.log('userRoster: ', getUserRoster(user.user_id));
     console.log('userMatchup: ', getUserMatchup(user.user_id));
     console.log('userOpponentMatchup: ', getUserOpponentMatchup(user.user_id));
-    console.log('userOpponentRoster: ', getUserOpponentRoster(user.user_id));
 
     return (
         <>
