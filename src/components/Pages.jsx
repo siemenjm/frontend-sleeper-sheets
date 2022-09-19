@@ -7,9 +7,11 @@ import { Routes, Route } from "react-router";
 
 export default function Pages(props) {
     const { BASE_URL, user, league } = useContext(Context);
-    const [users, setUsers] = useState(null);
-    const [rosters, setRosters] = useState(null);
-    const [matchups, setMatchups] = useState(null);
+    const [data, setData] = useState({
+        users: null,
+        rosters: null,
+        matchups: null
+    });
 
     async function getUsers() {
         const URL = `${BASE_URL}league/${league.league_id}/users`;
@@ -18,7 +20,7 @@ export default function Pages(props) {
             const response = await fetch(URL);
             const allUsers = await response.json();
 
-            setUsers(allUsers);
+            return allUsers;
         } catch(err) {
             console.log(err);
         }
@@ -26,12 +28,12 @@ export default function Pages(props) {
 
     async function getRosters() {
         const URL = `${BASE_URL}league/${league.league_id}/rosters`;
-        
+
         try {
             const response = await fetch(URL);
             const allRosters = await response.json();
 
-            setRosters(allRosters);
+            return allRosters;
         } catch(err) {
             console.log(err);
         }
@@ -39,34 +41,44 @@ export default function Pages(props) {
 
     async function getMatchups() {
         const URL = `${BASE_URL}league/${league.league_id}/matchups/2`;
-        
+
         try {
             const response = await fetch(URL);
             const allMatchups = await response.json();
 
-            setMatchups(allMatchups);
+            return allMatchups;
         } catch(err) {
             console.log(err);
         }
     }
 
+    async function getData() {
+        const allUsers = await getUsers();
+        const allRosters = await getRosters();
+        const allMatchups = await getMatchups();
+
+        setData({
+            users: allUsers,
+            rosters: allRosters,
+            matchups: allMatchups
+        });
+    }
+
     useEffect(() => {
-        getUsers();
-        getRosters();
-        getMatchups();
+        getData();
     }, [league]);
 
-    console.log('Users: ', users);
-    console.log('Rosters: ', rosters);
-    console.log('Matchups: ', matchups);
+    console.log('Users: ', data.users);
+    console.log('Rosters: ', data.rosters);
+    console.log('Matchups: ', data.matchups);
 
-    if (!users || !rosters || !matchups) {
+    if (!data.users || !data.rosters || !data.matchups) {
         return <h2>Loading data...</h2>
     }
 
     // get user info from users by user_id
     function getUserInfo(userId) {
-        const specificUser = users.filter((user) => {
+        const specificUser = data.users.filter((user) => {
             return user.user_id === userId;
         });
 
@@ -75,7 +87,7 @@ export default function Pages(props) {
 
     // get user roster from rosters by owner_id(user_id)
     function getUserRoster(userId) {
-        return rosters.filter((roster) => {
+        return data.rosters.filter((roster) => {
             return roster.owner_id === userId;
         })[0];
     }
@@ -83,7 +95,7 @@ export default function Pages(props) {
     // get user matchup from matchups by roster_id
     function getUserMatchup(userId) {
         const rosterId = getUserRoster(userId).roster_id;
-        return matchups.filter((matchup) => {
+        return data.matchups.filter((matchup) => {
             return matchup.roster_id === rosterId;
         })[0];
     }
@@ -92,7 +104,7 @@ export default function Pages(props) {
     function getUserOpponentMatchup(userId) {
         const rosterId = getUserRoster(userId).roster_id;
         const matchupId = getUserMatchup(userId).matchup_id;
-        return matchups.filter((matchup) => {
+        return data.matchups.filter((matchup) => {
             return matchup.matchup_id === matchupId && matchup.roster_id !== rosterId;
         })[0];
     }
@@ -100,7 +112,7 @@ export default function Pages(props) {
     // get user's opponent's roster
     function getUserOpponentRoster(userId) {
         const userOpponentMatchup = getUserOpponentMatchup(userId);
-        return rosters.filter((roster) => {
+        return data.rosters.filter((roster) => {
             return roster.roster_id === userOpponentMatchup.roster_id;
         })[0];
     }
@@ -111,9 +123,6 @@ export default function Pages(props) {
         const userOpponentRoster = getUserOpponentRoster(userId);
         return userOpponentRoster.owner_id;
     }
-
-    console.log('userMatchup: ', getUserMatchup(user.user_id));
-    console.log('userOpponentMatchup: ', getUserOpponentMatchup(user.user_id));
 
     return (
         <>
