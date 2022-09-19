@@ -9,8 +9,6 @@ export default function DefStats({ player }) {
         return <h2>Loading stats...</h2>
     }
 
-    console.log(playerStats);
-
     function printPTs() {
         return `${playerStats.pts_allow} PTS ALLOW`;
     }

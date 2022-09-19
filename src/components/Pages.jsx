@@ -68,10 +68,6 @@ export default function Pages(props) {
         getData();
     }, [league]);
 
-    console.log('Users: ', data.users);
-    console.log('Rosters: ', data.rosters);
-    console.log('Matchups: ', data.matchups);
-
     if (!data.users || !data.rosters || !data.matchups) {
         return <h2>Loading data...</h2>
     }
