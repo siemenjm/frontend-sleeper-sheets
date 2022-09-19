@@ -1,3 +1,4 @@
+import DefStats from "./DefStats";
 import KStats from "./KStats";
 import RBStats from "./RBStats";
 import QBStats from "./QBStats";
@@ -14,6 +15,8 @@ export default function PlayerStats({ player, positions }) {
         positionComponent = <WRandTEStats player={player}/>;
     } else if (positions.includes('K')) {
         positionComponent = <KStats player={player}/>;
+    } else if (positions.includes('DEF')) {
+        positionComponent = <DefStats player={player}/>;
     }
     
     return (

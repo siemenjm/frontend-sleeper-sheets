@@ -8,9 +8,7 @@ export default function KStats({ player }) {
     if (!playerStats) {
         return <h2>Loading stats...</h2>
     }
-
-    console.log(playerStats);
-
+    
     function printFGs() {
         if (playerStats.fga > 0) {
             return `${playerStats.fgm}/${playerStats.fga} FG`;
