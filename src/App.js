@@ -11,6 +11,7 @@ export default function App() {
     const [league, setLeague] = useState(null);
     const [subPage, setSubPage] = useState('matchup/');
     const [weeklyStats, setWeeklyStats] = useState(null);
+    const [weeklyProj, setWeeklyProj] = useState(null);
 
     async function getWeeklyStats() {
         const URL = `${BASE_URL}stats/nfl/regular/2022/2`;
@@ -25,13 +26,26 @@ export default function App() {
         }
     }
 
+    async function getWeeklyProjs() {
+        const URL = `${BASE_URL}projections/nfl/regular/2022/2`;
+
+        try {
+            const response = await fetch(URL);
+            const allWeeklyProj = await response.json();
+
+            setWeeklyProj(allWeeklyProj);
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
     useEffect(() => {
         getWeeklyStats();
     }, []);
 
     return (
         <>
-            <Context.Provider value={{ BASE_URL, user, setUser, league, setLeague, subPage, setSubPage, weeklyStats, setWeeklyStats }}>
+            <Context.Provider value={{ BASE_URL, user, setUser, league, setLeague, subPage, setSubPage, weeklyStats, setWeeklyStats, weeklyProj, setWeeklyProj }}>
                 <Sidebar />
                 <Main />
             </Context.Provider>
