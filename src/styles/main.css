@@ -33,6 +33,7 @@ main {
 }
 
 .tab {
+    width: 100%;
     grid-area: 2 / 1 / span 1 / span 1;
     border: 5px solid purple;
     display: flex;
@@ -42,4 +43,14 @@ main {
 
 .page-header {
     border: 2px solid red;
+}
+
+/* ----- Matchup Tab ----- */
+.matchup-tab {
+    width: 100%;
+}
+
+.matchup-summary {
+    display: flex;
+    justify-content: space-evenly;
 }
