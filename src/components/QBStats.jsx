@@ -4,9 +4,17 @@ import { useContext } from "react";
 export default function QBStats({ player }) {
     const { weeklyData } = useContext(Context);
     const playerStats = weeklyData.weeklyStats[player.player_id];
+    const playerProj = weeklyData.weeklyProj[player.player_id];
+
+    console.log('playerName: ', player.full_name)
+    console.log('playerStats: ', playerStats)
+    
+    if (Object.keys(playerProj).length === 0) {
+        return <p>{`${player.full_name} is Out`}</p>;
+    }
 
     if (!playerStats) {
-        return <h2>Loading stats...</h2>
+        return <p>{`${player.full_name} is yet to play`}</p>;
     }
 
     function printCompletions() {

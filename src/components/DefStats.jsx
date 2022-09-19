@@ -4,11 +4,16 @@ import { useContext } from "react";
 export default function DefStats({ player }) {
     const { weeklyData } = useContext(Context);
     const playerStats = weeklyData.weeklyStats[player.player_id];
-
-    if (!playerStats) {
-        return <h2>Loading stats...</h2>
+    const playerProj = weeklyData.weeklyProj[player.player_id];
+    
+    if (Object.keys(playerProj).length === 0) {
+        return <p>{`${player.full_name} is Out`}</p>;
     }
 
+    if (!playerStats) {
+        return <p>{`${player.full_name} is yet to play`}</p>;
+    }
+    
     function printPTs() {
         return `${playerStats.pts_allow} PTS ALLOW`;
     }

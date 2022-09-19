@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import playerData from '../temp_data/temp_player_data.json';
 import PlayerStats from './PlayerStats';
 
-export default function UserPlayer({ playerId, points}) {
+export default function UserPlayer({ playerId, points }) {
     const staticPlayerInfo = playerData[playerId];
     const fantasyPositions = staticPlayerInfo.fantasy_positions.join();
 
@@ -26,15 +26,16 @@ export default function UserPlayer({ playerId, points}) {
 
     console.log(weeklyProj[playerId]);
     const scoring = getLeagueScoringType(league);
+    const projectedPoints = weeklyProj[playerId][scoring];
 
     return (
         <>
             <div className="player-summary">
                 <h3>{staticPlayerInfo.full_name ? staticPlayerInfo.full_name : staticPlayerInfo.team}</h3>
                 <p>{fantasyPositions} - {staticPlayerInfo.team}</p>
-                <p className='player-current-points'>{points}</p>
+                <p className='player-current-points'>{points.toFixed(2)}</p>
                 <PlayerStats player={staticPlayerInfo} positions={staticPlayerInfo.fantasy_positions} />
-                <p className="projected-points">{weeklyProj[playerId][scoring]}</p>
+                <p className="projected-points">{projectedPoints ? projectedPoints : '0.00'}</p>
             </div>
         </>
     );
