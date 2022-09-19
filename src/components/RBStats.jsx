@@ -1,7 +1,7 @@
 import { Context } from "context/Context";
 import { useContext } from "react";
 
-export default function QBStats({ player }) {
+export default function RBStats({ player }) {
     const { weeklyStats } = useContext(Context);
     const playerStats = weeklyStats[player.player_id];
 
@@ -9,29 +9,7 @@ export default function QBStats({ player }) {
         return <h2>Loading stats...</h2>
     }
 
-    function printCompletions() {
-        if (playerStats.pass_att > 0) {
-            return `${playerStats.pass_cmp}/${playerStats.pass_att} CMP`;
-        }
-    }
-
-    function printPassYards() {
-        if (playerStats.pass_yd !== 0 && !undefined) {
-            return `${playerStats.pass_yd} YD`;
-        }
-    }
-
-    function printPassTDs() {
-        if (playerStats.pass_td > 0) {
-            return `${playerStats.pass_td} TD`;
-        }
-    }
-
-    function printINTs() {
-        if (playerStats.pass_int > 0) {
-            return `${playerStats.pass_int} INT`;
-        }
-    }
+    console.log(playerStats);
 
     function printRushAtt() {
         if (playerStats.rush_att > 0) {
@@ -51,6 +29,25 @@ export default function QBStats({ player }) {
         }
     }
 
+    function printReceptions() {
+        if (playerStats.rec_tgt > 0) {
+            return `${playerStats.rec}/${playerStats.rec_tgt} REC`;
+        }
+    }
+
+    function printRecYards() {
+        if (playerStats.rec_yd > 0) {
+            return `${playerStats.rec_yd} YD`;
+        }
+    }
+
+    function printRecTDs() {
+        if (playerStats.rec_td > 0) {
+            return `${playerStats.rec_td} TD`;
+        }
+    }
+
+
     function printFum() {
         if (playerStats.fum > 0) {
             return `${playerStats.fum} FUM`;
@@ -64,13 +61,12 @@ export default function QBStats({ player }) {
     }
 
     let printFuncArray = [
-        printCompletions,
-        printPassYards,
-        printPassTDs,
-        printINTs,
         printRushAtt,
         printRushYards,
         printRushTDs,
+        printReceptions,
+        printRecYards,
+        printRecTDs,
         printFum,
         printFumLost
     ];
