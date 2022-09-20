@@ -233,7 +233,7 @@ main {
     z-index: 10;
 }
 
-.user-matchup-details .player-team-logo {
+.user-matchup-details .player-team-logo, .all-starters .player-team-logo {
     left: calc(42px - 16px);
 }
 
@@ -241,7 +241,7 @@ main {
     right: calc(42px - 16px);
 }
 
-.user-matchup-details .player-name {
+.user-matchup-details .player-name, .all-starters .player-name {
     margin-left: 1rem;
 }
 
@@ -253,7 +253,7 @@ main {
     color: var(--gray-text);
 }
 
-.user-matchup-details .player-pos-team {
+.user-matchup-details .player-pos-team, .all-starters .player-pos-team {
     margin-left: 1rem;
 }
 
@@ -266,7 +266,7 @@ main {
     justify-self: flex-end;
 }
 
-.user-matchup-details .player-current-points {
+.user-matchup-details .player-current-points, .all-starters .player-current-points {
     margin-left: auto;
 }
 
@@ -290,7 +290,7 @@ main {
     overflow-wrap: normal;
 }
 
-.user-matchup-details .player-stats {
+.user-matchup-details .player-stats, .all-starters .player-stats {
     margin-right: 2rem;
 }
 
@@ -303,7 +303,7 @@ main {
     justify-self: flex-end;
 }
 
-.user-matchup-details .player-projected-points {
+.user-matchup-details .player-projected-points, .all-starters .player-projected-points {
     margin-left: auto;
 }
 
