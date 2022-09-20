@@ -22,7 +22,7 @@ export default function TeamTab({ userId, getUserRoster, getUserMatchup }) {
                 <h2>Bench</h2>
                 <div className="bench-containers">
                     <BenchPositions />
-                    <UserBenchList matchup={currentLineup}/>
+                    <UserBenchList roster={currentRoster} matchup={currentLineup}/>
                 </div>
             </div>
             <div className="user-IR">

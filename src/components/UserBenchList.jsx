@@ -1,12 +1,13 @@
 import UserPlayer from "./UserPlayer";
 
-export default function UserBenchList({ matchup }) {
+export default function UserBenchList({ roster, matchup }) {
     const players = matchup.players;
     const starters = matchup.starters;
+    const IRPlayers = roster.reserve;
     const points = matchup.players_points;
 
     const benchPlayers = players.filter((player) => {
-        return !starters.includes(player);
+        return !starters.includes(player) && !IRPlayers.includes(player);
     });
 
     const benchPoints = benchPlayers.map((player) => {

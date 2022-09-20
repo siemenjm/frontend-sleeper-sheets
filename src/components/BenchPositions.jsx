@@ -9,7 +9,9 @@ export default function BenchPositions(props) {
         return position === 'BN';
     });
 
-    const benchCount = benchPositions.length;
+    const taxiSlots = league.settings.taxi_slots;
+
+    const benchCount = benchPositions.length + taxiSlots;
     let displayedBenchPositions = [];
     for (let i = 0; i < benchCount; i++) {
         const position = <div className="position-label" key={i}><h3 className={`BEN-label`}>BEN</h3></div>;
