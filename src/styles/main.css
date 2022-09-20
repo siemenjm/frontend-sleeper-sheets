@@ -238,6 +238,7 @@ main {
 }
 
 .opponent-matchup-details .player-team-logo {
+    left: auto;
     right: calc(42px - 16px);
 }
 
