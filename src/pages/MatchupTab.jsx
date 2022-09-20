@@ -29,7 +29,7 @@ export default function MatchupTab({ userId, getUserInfo, getUserOpponentId, get
                     </div>
                     <div className="user-bench">
                         <h2>Bench</h2>
-                        <UserBenchList matchup={userMatchup}/>
+                        <UserBenchList roster={userRoster} matchup={userMatchup}/>
                     </div>
                 </div>
                 <div className="opponent-matchup-details">
@@ -39,7 +39,7 @@ export default function MatchupTab({ userId, getUserInfo, getUserOpponentId, get
                     </div>
                     <div className="opponent-bench">
                         <h2>Bench</h2>
-                        <UserBenchList matchup={opponentMatchup}/>
+                        <UserBenchList roster={opponentRoster} matchup={opponentMatchup}/>
                     </div>
                 </div>
             </div>

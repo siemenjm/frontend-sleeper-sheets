@@ -3,8 +3,12 @@ import UserPlayer from "./UserPlayer";
 export default function UserBenchList({ roster, matchup }) {
     const players = matchup.players;
     const starters = matchup.starters;
-    const IRPlayers = roster.reserve;
     const points = matchup.players_points;
+    
+    let IRPlayers = roster.reserve;
+    if (!IRPlayers) {
+        IRPlayers = [];
+    }
 
     const benchPlayers = players.filter((player) => {
         return !starters.includes(player) && !IRPlayers.includes(player);
