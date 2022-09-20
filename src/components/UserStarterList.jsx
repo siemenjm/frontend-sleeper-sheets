@@ -7,8 +7,8 @@ export default function UserStarterList({ starters, points }) {
     }
 
     return (
-        <>
+        <div className="all-starters">
             {allStarters}
-        </>
+        </div>
     );
 }

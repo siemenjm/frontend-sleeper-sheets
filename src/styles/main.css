@@ -312,3 +312,52 @@ main {
 }
 
 /* ----- End of Matchup Tab ----- */
+
+/* ----- Team Tab ----- */
+.starter-containers {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+}
+
+.position-label {
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.position-label h3 {
+    font-weight: bold;
+    font-size: 12px;
+    background-color: var(--blue);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+.QB-label {
+    color: rgb(234, 67, 111);
+}
+
+.RB-label {
+    color: var(--accent-blue);
+}
+
+.WR-label {
+    color: rgb(109, 165, 249);
+}
+
+.TE-label {
+    color: rgb(244, 178, 103);
+}
+
+.FLEX-label {
+    color: rgb(255, 0, 242);
+}
+
+.K-label {
+    color: rgb(178, 106, 247);
+}
+
+.DEF-label {
+    color: var(--gray-text);
+}
