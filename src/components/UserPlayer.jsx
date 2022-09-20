@@ -25,7 +25,10 @@ export default function UserPlayer({ playerId, points }) {
     }
 
     const scoring = getLeagueScoringType(league);
-    const projectedPoints = weeklyProj[playerId][scoring];
+    let projectedPoints = weeklyProj[playerId][scoring];
+    if (!projectedPoints) {
+        projectedPoints = 0.00;
+    }
 
     return (
         <>
@@ -39,7 +42,7 @@ export default function UserPlayer({ playerId, points }) {
                 </div>
                 <div className="bottom-row">
                     <PlayerStats player={staticPlayerInfo} positions={staticPlayerInfo.fantasy_positions} />
-                    <p className="player-projected-points">{projectedPoints ? projectedPoints : '0.00'}</p>
+                    {projectedPoints > points ? <p className="player-projected-points red-points">{projectedPoints}</p> : <p className="player-projected-points green-points">{projectedPoints}</p>}
                 </div>
             </div>
         </>

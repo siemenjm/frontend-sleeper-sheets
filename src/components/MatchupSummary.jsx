@@ -41,7 +41,7 @@ export default function MatchupSummary({ user, roster, matchup }) {
             </div>
             <div className="bottom-row">
                 <p className="team-record">{roster.settings.wins} - {roster.settings.losses}</p>
-                <p className="projected-points">{starterProjSum}</p>
+                {starterProjSum > matchup.points ? <p className="projected-points red-points">{starterProjSum}</p> : <p className="projected-points green-points">{starterProjSum}</p>}
             </div>
         </>
     );
