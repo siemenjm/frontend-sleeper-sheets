@@ -31,11 +31,17 @@ export default function UserPlayer({ playerId, points }) {
     return (
         <>
             <div className="player-summary">
-                <h3>{staticPlayerInfo.full_name ? staticPlayerInfo.full_name : staticPlayerInfo.team}</h3>
-                <p>{fantasyPositions} - {staticPlayerInfo.team}</p>
-                <p className='player-current-points'>{points.toFixed(2)}</p>
-                <PlayerStats player={staticPlayerInfo} positions={staticPlayerInfo.fantasy_positions} />
-                <p className="projected-points">{projectedPoints ? projectedPoints : '0.00'}</p>
+                <div className="top-row">
+                    <img src={fantasyPositions === 'DEF' ? `https://sleepercdn.com/images/team_logos/nfl/${staticPlayerInfo.team.toLowerCase()}.png` : `https://sleepercdn.com/content/nfl/players/${playerId}.jpg`} alt={staticPlayerInfo.full_name} className="player-img" />
+                    <img src={`https://sleepercdn.com/images/team_logos/nfl/${staticPlayerInfo.team.toLowerCase()}.png`} alt={`${staticPlayerInfo.team} logo`} className="player-team-logo" />
+                    <h3>{staticPlayerInfo.full_name ? staticPlayerInfo.full_name : staticPlayerInfo.team}</h3>
+                    <p>{fantasyPositions} - {staticPlayerInfo.team}</p>
+                    <p className='player-current-points'>{points.toFixed(2)}</p>
+                </div>
+                <div className="bottom-row">
+                    <PlayerStats player={staticPlayerInfo} positions={staticPlayerInfo.fantasy_positions} />
+                    <p className="projected-points">{projectedPoints ? projectedPoints : '0.00'}</p>
+                </div>
             </div>
         </>
     );
