@@ -1,3 +1,4 @@
+import BenchPositions from "components/BenchPositions";
 import StarterPositions from "components/StarterPositions";
 import UserBenchList from "components/UserBenchList";
 import UserStarterList from "components/UserStarterList";
@@ -16,7 +17,10 @@ export default function TeamTab({ userId, getUserMatchup }) {
             </div>
             <div className="user-bench">
                 <h2>Bench</h2>
-                <UserBenchList matchup={currentLineup}/>
+                <div className="bench-containers">
+                    <BenchPositions />
+                    <UserBenchList matchup={currentLineup}/>
+                </div>
             </div>
         </div>
     );

@@ -19,8 +19,8 @@ export default function UserBenchList({ matchup }) {
 
 
     return (
-        <>
+        <div className="all-bench">
             {allBenchPlayers}
-        </>
+        </div>
     );
 }
