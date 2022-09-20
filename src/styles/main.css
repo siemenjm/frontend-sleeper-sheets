@@ -309,7 +309,16 @@ main {
 }
 
 .opponent-matchup-details .player-projected-points {
+    margin-left: 0;
     margin-right: auto;
+}
+
+.red-points {
+    color:rgb(234, 67, 111);
+}
+
+.green-points {
+    color:rgb(94, 203, 184);
 }
 
 /* ----- End of Matchup Tab ----- */
