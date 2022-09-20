@@ -60,7 +60,14 @@ main {
 }
 
 .info-header {
+    display: flex;
+    align-items: center;
     margin-bottom: 1rem;
+}
+
+.info-header h2 {
+    margin-left: 2rem;
+    font-size: 2rem;
 }
 
 .tab-container {
