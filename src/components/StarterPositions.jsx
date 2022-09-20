@@ -10,7 +10,7 @@ export default function StarterPositions(props) {
     });
 
     const displayedStarterPositions = starterPositions.map((position, index) => {
-        return <div className="position-label"><h3 className={`${position}-label`} key={index}>{position}</h3></div>;
+        return <div className="position-label" key={index}><h3 className={`${position}-label`}>{position}</h3></div>;
     });
 
     return (

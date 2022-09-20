@@ -21,7 +21,7 @@ export default function UserIRList({ roster }) {
     for (let i = 0; i < IRSlots; i++) {
         let player;
         if (!allIR[i]) {
-            player = <div className="empty-IR"><h3>Empty</h3></div>;
+            player = <div className="empty-IR" key={i}><h3>Empty</h3></div>;
         } else {
             player = <UserPlayer playerId={allIR[i]} points={0.00} key={allIR[i]} />;
         }

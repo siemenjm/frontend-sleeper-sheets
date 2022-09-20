@@ -12,7 +12,7 @@ export default function BenchPositions(props) {
     const benchCount = benchPositions.length;
     let displayedBenchPositions = [];
     for (let i = 0; i < benchCount; i++) {
-        const position = <div className="position-label"><h3 className={`BEN-label`} key={i}>BEN</h3></div>;
+        const position = <div className="position-label" key={i}><h3 className={`BEN-label`}>BEN</h3></div>;
         displayedBenchPositions.push(position);
     }
 
