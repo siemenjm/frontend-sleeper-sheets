@@ -126,11 +126,59 @@ main {
     border-radius: 1rem;
 }
 
+.matchup-summary > * {
+    height: 120px;
+    justify-content: center;
+}
+
+.matchup-summary .top-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-bottom: 0.5rem;
+    border-bottom: 5px solid var(--lighter-blue);
+}
+
 .matchup-summary img {
     width: 45px;
     height: 45px;
     border: 2px solid var(--accent-blue);
     border-radius: 100%;
+}
+
+.matchup-summary .name-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-matchup-summary .name-info {
+    margin-left: 1rem;
+    margin-right: auto;
+}
+
+.opponent-matchup-summary .name-info {
+    margin-left: auto;
+    margin-right: 1rem;
+    align-items: flex-end;
+}
+
+.name-info .username {
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+.name-info .team-name, .top-row .current-points {
+    font-weight: bold;
+}
+
+.matchup-summary .bottom-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.opponent-matchup-summary .bottom-row {
+    flex-direction: row-reverse;
 }
 
 .matchup-details {
@@ -155,11 +203,11 @@ main {
     height: 90px;
 }
 
-.user-starters .top-row, .user-bench .top-row {
+.user-matchup-summary .top-row, .user-starters .top-row, .user-bench .top-row {
     flex-direction: row;
 }
 
-.opponent-starters .top-row, .opponent-bench .top-row {
+.opponent-matchup-summary .top-row, .opponent-starters .top-row, .opponent-bench .top-row {
     flex-direction: row-reverse;
 }
 
@@ -201,7 +249,7 @@ main {
     margin-right: 1rem;
 }
 
-.player-pos-team {
+.name-info .username, .team-record, .player-pos-team {
     color: var(--gray-text);
 }
 
@@ -250,7 +298,7 @@ main {
     margin-left: 2rem;
 }
 
-.player-projected-points {
+.projected-points, .player-projected-points {
     color: var(--gray-text);
     justify-self: flex-end;
 }
