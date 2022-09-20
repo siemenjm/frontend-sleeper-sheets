@@ -24,7 +24,6 @@ export default function UserPlayer({ playerId, points }) {
         }
     }
 
-    console.log(weeklyProj[playerId]);
     const scoring = getLeagueScoringType(league);
     const projectedPoints = weeklyProj[playerId][scoring];
 

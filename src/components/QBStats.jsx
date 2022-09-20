@@ -5,9 +5,6 @@ export default function QBStats({ player }) {
     const { weeklyData } = useContext(Context);
     const playerStats = weeklyData.weeklyStats[player.player_id];
     const playerProj = weeklyData.weeklyProj[player.player_id];
-
-    console.log('playerName: ', player.full_name)
-    console.log('playerStats: ', playerStats)
     
     if (Object.keys(playerProj).length === 0) {
         return <p>{`${player.full_name} is Out`}</p>;
