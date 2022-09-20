@@ -192,7 +192,7 @@ main {
 .matchup-details {
     display: grid;
     grid-template-columns: 50% 0% 50%;
-    grid-template-rows: auto auto;
+    grid-template-rows: max-content 1fr;
 }
 
 .user-matchup-details {
@@ -207,10 +207,18 @@ main {
     z-index: 10;
 }
 
-.matchup-details .starter-positions .position-label h3 {
+.matchup-details .starter-positions .position-label h3, .matchup-details .bench-positions .position-label h3 {
     padding: 1rem;
     background-color: var(--darkest--blue);
     border-radius: 1000px;
+}
+
+.matchup-details .bench-positions {
+    grid-area: 2 / 2 / span 1 / span 1;
+    margin-left: calc(-55px/2);
+    z-index: 10;
+    margin-top: 75px;
+    margin-bottom: 50px;
 }
 
 .opponent-matchup-details {
@@ -304,6 +312,7 @@ main {
 }
 
 .opponent-matchup-details .player-current-points {
+    margin-left: 0;
     margin-right: auto;
 }
 
@@ -328,6 +337,7 @@ main {
 }
 
 .opponent-matchup-details .player-stats {
+    margin-right: 0;
     margin-left: 2rem;
 }
 
