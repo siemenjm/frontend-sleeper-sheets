@@ -1,67 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
-    /* variables */
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+
+    --darkest--blue: rgb(25, 28, 39);
+    --dark-blue: rgb(43, 49, 65);
+    --blue: rgb(49, 56, 72);
+    --lighter-blue: rgb(61,70,89);
+    --accent-blue: rgb(94, 203, 184);
+    --gray-text: rgb(166,183,206);
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    color: white;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: normal;
 }
 
 #root {
+    background-color: var(--darkest--blue);
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 20% 1fr;
+    grid-template-columns: 250px 1fr;
     grid-template-rows: 1fr;
 }
 
 .sidebar {
+    background-color: var(--dark-blue);
     grid-area: 1 / 1 / span 1 / span 1;
-    border: 5px solid green;
+    border-right: 1px solid var(--lighter-blue);
 }
 
 main {
-    max-height: 100vh;
     grid-area: 1 / 2 / span 1 / span 1;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 150px 1fr;
+    width: 100%;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
 }
 
 .info-header {
-    grid-area: 1 / 1 / span 1 / span 1;
-    border: 5px solid blue;
+    margin-bottom: 1rem;
+}
+
+.tab-container {
+    background-color: var(--dark-blue);
+    width: 100%;
+    flex-grow: 1; 
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid var(--lighter-blue);
+    border-radius: 2rem;
+}
+
+.page-header {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.page-header > * {
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--darkest--blue);
+    background-color: var(--accent-blue);
+    margin: 0 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
 }
 
 .tab {
     width: 100%;
+    flex-grow: 1;
     overflow-y: scroll;
-    grid-area: 2 / 1 / span 1 / span 1;
-    border: 5px solid purple;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-.page-header {
-    border: 2px solid red;
+::-webkit-scrollbar {
+    width: 7px;
 }
 
-.page-header > * {
-    margin: 0 1rem;
+::-webkit-scrollbar-track {
+    background: var(--dark-blue);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-blue);
+    border-radius: 10px;
 }
 
 /* ----- Matchup Tab ----- */
-.matchup-tab {
-    width: 100%;
-}
-
-.matchup-summary, .matchup-details {
+.matchup-summary {
     display: flex;
     justify-content: space-evenly;
 }
 
 .matchup-summary > *, .player-summary {
-    background-color: rgb(212, 212, 212);
-    margin: 0.5rem 0;
+    background-color: var(--blue);
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+}
+
+.matchup-details {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.user-starters, .user-bench, .opponent-starters, .opponent-bench {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.user-starters > h2, .user-bench > h2, .opponent-starters > h2, .opponent-bench > h2 {
+    margin-top: 3rem;
+}
+
+.opponent-starters > h2, .opponent-bench > h2 {
+    color: var(--dark-blue);
+}
+
+.player-summary {
+    height: 90px;
+}
+
+.user-starters .top-row, .user-bench .top-row {
+    flex-direction: row;
+}
+
+.opponent-starters .top-row, .opponent-bench .top-row {
+    flex-direction: row-reverse;
+}
+
+.player-summary > .top-row {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+    border-bottom: 5px solid var(--lighter-blue);
+}
+
+.player-img {
+    width: 42px;
+    height: 32px;
+}
+
+.player-team-logo {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 16px;
+    z-index: 10;
+}
+
+.user-matchup-details .player-team-logo {
+    left: calc(42px - 16px);
+}
+
+.opponent-matchup-details .player-team-logo {
+    right: calc(42px - 16px);
+}
+
+.user-matchup-details .player-name {
+    margin-left: 1rem;
+}
+
+.opponent-matchup-details .player-name {
+    margin-right: 1rem;
+}
+
+.player-pos-team {
+    color: var(--gray-text);
+}
+
+.user-matchup-details .player-pos-team {
+    margin-left: 1rem;
+}
+
+.opponent-matchup-details .player-pos-team {
+    margin-right: 1rem;
+}
+
+.player-current-points {
+    font-weight: bold;
+    justify-self: flex-end;
+}
+
+.user-matchup-details .player-current-points {
+    margin-left: auto;
+}
+
+.opponent-matchup-details .player-current-points {
+    margin-right: auto;
+}
+
+.player-summary > .bottom-row {
+    display: flex;
+}
+
+.user-matchup-details .bottom-row {
+    flex-direction: row;
+}
+
+.opponent-matchup-details .bottom-row {
+    flex-direction: row-reverse;
+}
+
+.player-stats {
+    overflow-wrap: normal;
+}
+
+.user-matchup-details .player-stats {
+    margin-right: 2rem;
+}
+
+.opponent-matchup-details .player-stats {
+    margin-left: 2rem;
+}
+
+.player-projected-points {
+    color: var(--gray-text);
+    justify-self: flex-end;
+}
+
+.user-matchup-details .player-projected-points {
+    margin-left: auto;
+}
+
+.opponent-matchup-details .player-projected-points {
+    margin-right: auto;
 }

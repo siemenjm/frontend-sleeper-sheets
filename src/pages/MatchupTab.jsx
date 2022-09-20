@@ -10,7 +10,7 @@ export default function MatchupTab({ userId, getUserInfo, getUserOpponentId, get
     const opponentMatchup = getUserMatchup(currentOpponentId);
 
     return (
-        <div className="matchup-tab">
+        <div className="matchup-tab tab">
             <div className="matchup-summary">
                 <div className="user-matchup-summary">
                     <MatchupSummary user={currentUser} matchup={userMatchup} />
