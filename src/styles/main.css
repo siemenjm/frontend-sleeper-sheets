@@ -33,9 +33,10 @@ body {
 
 #root {
     background-color: var(--darkest--blue);
-    width: 1440px;
-    max-width: 1440px;
+    width: 1480px;
+    max-width: 1480px;
     max-height: 100%;
+    padding: 0 20px;
     display: grid;
     grid-template-columns: 250px 1fr;
     grid-template-rows: 1fr;
@@ -77,6 +78,7 @@ main {
 
 .page-header {
     display: flex;
+    margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -112,8 +114,8 @@ main {
 
 /* ----- Matchup Tab ----- */
 .matchup-summary {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 .matchup-summary > *, .player-summary {
@@ -122,6 +124,13 @@ main {
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
+}
+
+.matchup-summary img {
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--accent-blue);
+    border-radius: 100%;
 }
 
 .matchup-details {
