@@ -186,12 +186,12 @@ main {
     grid-template-columns: 50% 50%;
 }
 
-.all-starters, .all-bench, .user-bench, .opponent-bench, .starter-positions, .bench-positions  {
+.all-starters, .all-bench, .all-IR, .user-bench, .user-IR, .opponent-bench, .starter-positions, .bench-positions, .IR-positions  {
     display: grid;
     gap: 1.5rem;
 }
 
-.user-starters > h2, .user-bench > h2, .opponent-starters > h2, .opponent-bench > h2 {
+.user-starters > h2, .user-bench > h2, .opponent-starters > h2, .opponent-bench > h2, .user-IR > h2 {
     margin-top: 3rem;
 }
 
@@ -233,7 +233,7 @@ main {
     z-index: 10;
 }
 
-.user-matchup-details .player-team-logo, .all-starters .player-team-logo, .all-bench .player-team-logo {
+.user-matchup-details .player-team-logo, .all-starters .player-team-logo, .all-bench .player-team-logo, .all-IR .player-team-logo {
     left: calc(42px - 16px);
 }
 
@@ -241,7 +241,7 @@ main {
     right: calc(42px - 16px);
 }
 
-.user-matchup-details .player-name, .all-starters .player-name, .all-bench .player-name {
+.user-matchup-details .player-name, .all-starters .player-name, .all-bench .player-name, .all-IR .player-name {
     margin-left: 1rem;
 }
 
@@ -253,7 +253,7 @@ main {
     color: var(--gray-text);
 }
 
-.user-matchup-details .player-pos-team, .all-starters .player-pos-team, .all-bench .player-pos-team {
+.user-matchup-details .player-pos-team, .all-starters .player-pos-team, .all-bench .player-pos-team, .all-IR .player-pos-team {
     margin-left: 1rem;
 }
 
@@ -266,7 +266,7 @@ main {
     justify-self: flex-end;
 }
 
-.user-matchup-details .player-current-points, .all-starters .player-current-points, .all-bench .player-current-points {
+.user-matchup-details .player-current-points, .all-starters .player-current-points, .all-bench .player-current-points, .all-IR .player-current-points {
     margin-left: auto;
 }
 
@@ -290,7 +290,7 @@ main {
     overflow-wrap: normal;
 }
 
-.user-matchup-details .player-stats, .all-starters .player-stats, .all-bench .player-stats {
+.user-matchup-details .player-stats, .all-starters .player-stats, .all-bench .player-stats, .all-IR .player-stats {
     margin-right: 2rem;
 }
 
@@ -303,7 +303,7 @@ main {
     justify-self: flex-end;
 }
 
-.user-matchup-details .player-projected-points, .all-starters .player-projected-points, .all-bench .player-projected-points {
+.user-matchup-details .player-projected-points, .all-starters .player-projected-points, .all-bench .player-projected-points, .all-IR .player-projected-points {
     margin-left: auto;
 }
 
@@ -314,9 +314,9 @@ main {
 /* ----- End of Matchup Tab ----- */
 
 /* ----- Team Tab ----- */
-.starter-containers, .bench-containers {
+.starter-containers, .bench-containers, .IR-containers {
     display: grid;
-    grid-template-columns: max-content 1fr;
+    grid-template-columns: 100px 1fr;
 }
 
 .position-label {
@@ -324,7 +324,6 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 1rem;
 }
 
 .position-label h3 {
@@ -361,4 +360,16 @@ main {
 
 .DEF-label {
     color: var(--gray-text);
+}
+
+.IR-label {
+    color:rgb(234, 67, 111);
+}
+
+.empty-IR {
+    height: 90px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 2rem;
 }

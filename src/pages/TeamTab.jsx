@@ -1,9 +1,12 @@
 import BenchPositions from "components/BenchPositions";
+import IRPositions from "components/IRPositions";
 import StarterPositions from "components/StarterPositions";
 import UserBenchList from "components/UserBenchList";
+import UserIRList from "components/UserIRList";
 import UserStarterList from "components/UserStarterList";
 
-export default function TeamTab({ userId, getUserMatchup }) {
+export default function TeamTab({ userId, getUserRoster, getUserMatchup }) {
+    const currentRoster = getUserRoster(userId);
     const currentLineup = getUserMatchup(userId);
 
     return (
@@ -20,6 +23,13 @@ export default function TeamTab({ userId, getUserMatchup }) {
                 <div className="bench-containers">
                     <BenchPositions />
                     <UserBenchList matchup={currentLineup}/>
+                </div>
+            </div>
+            <div className="user-IR">
+                <h2>Injured Reserve</h2>
+                <div className="IR-containers">
+                    <IRPositions />
+                    <UserIRList roster={currentRoster}/>
                 </div>
             </div>
         </div>
