@@ -24,9 +24,18 @@ h3 {
     font-weight: normal;
 }
 
+body {
+    background-color: var(--darkest--blue);
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
 #root {
     background-color: var(--darkest--blue);
-    min-height: 100vh;
+    width: 1440px;
+    max-width: 1440px;
+    max-height: 100%;
     display: grid;
     grid-template-columns: 250px 1fr;
     grid-template-rows: 1fr;
@@ -35,16 +44,18 @@ h3 {
 .sidebar {
     background-color: var(--dark-blue);
     grid-area: 1 / 1 / span 1 / span 1;
-    border-right: 1px solid var(--lighter-blue);
+    border: 1px solid var(--lighter-blue);
+    border-radius: 2rem;
+    margin: 2rem 0;
 }
 
 main {
     grid-area: 1 / 2 / span 1 / span 1;
     width: 100%;
-    max-height: 100vh;
+    max-height: calc(100vh - 1rem);
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 1rem 0 1rem 2rem;
 }
 
 .info-header {
