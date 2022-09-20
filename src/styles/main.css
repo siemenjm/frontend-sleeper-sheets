@@ -139,19 +139,19 @@ main {
     border-bottom: 5px solid var(--lighter-blue);
 }
 
-.matchup-summary img {
+.matchup-summary img, .team-tab-user-info img {
     width: 45px;
     height: 45px;
     border: 2px solid var(--accent-blue);
     border-radius: 100%;
 }
 
-.matchup-summary .name-info {
+.matchup-summary .name-info, .team-tab-user-info .name-info {
     display: flex;
     flex-direction: column;
 }
 
-.user-matchup-summary .name-info {
+.user-matchup-summary .name-info, .team-tab-user-info .name-info {
     margin-left: 1rem;
     margin-right: auto;
 }
@@ -315,6 +315,11 @@ main {
 /* ----- End of Matchup Tab ----- */
 
 /* ----- Team Tab ----- */
+.team-tab-user-info {
+    display: flex;
+    align-items: center;
+}
+
 .starter-containers, .bench-containers, .IR-containers {
     display: grid;
     grid-template-columns: 100px 1fr;
