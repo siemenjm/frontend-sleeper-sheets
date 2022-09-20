@@ -388,3 +388,18 @@ main {
     align-items: center;
     padding-left: 2rem;
 }
+
+/* ----- End of Team Tab ----- */
+
+/* ----- League Tab ----- */
+.league-tab h2 {
+    margin-bottom: 3rem;
+}
+
+.matchup-list > * {
+    margin-bottom: 1.5rem;
+}
+
+.matchup-list > .matchup-summary:last-child {
+    margin-bottom: 0;
+}
