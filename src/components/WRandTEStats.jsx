@@ -16,6 +16,10 @@ export default function WRandTEStats({ player }) {
     
     function printReceptions() {
         if (playerStats.rec_tgt > 0) {
+            if (playerStats.rec === undefined) {
+                return `0/${playerStats.rec_tgt} REC`;
+            }
+
             return `${playerStats.rec}/${playerStats.rec_tgt} REC`;
         }
     }
