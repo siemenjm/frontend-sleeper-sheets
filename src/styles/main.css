@@ -73,12 +73,12 @@ body {
     margin-bottom: 1rem;
 }
 
-.user-form {
+form {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
 }
 
-.user-form input {
+form input {
     font-size: 1.3rem;
     color: var(--darkest--blue);
     width: 100%;
@@ -86,11 +86,11 @@ body {
     border: 1px solid var(--blue);
 }
 
-.user-form input:focus-visible {
+form input:focus-visible {
     outline: 1px solid var(--accent-blue);
 }
 
-.user-form > button {
+form > button {
     color: var(--darkest--blue);
     background-color: var(--accent-blue);
     border: none;

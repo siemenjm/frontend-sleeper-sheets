@@ -1,40 +1,10 @@
 import LoginForm from "components/LoginForm";
+import RegisterForm from "components/RegisterForm";
 import { Context } from "context/Context";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function DefaultPage(props) {
-    const { DB_URL, setUserAccount } = useContext(Context);
-
-    const initLoginForm = {
-        email: '',
-        password: '',
-    };
-    const [loginForm, setLoginForm] = useState(initLoginForm);
-
-    function handleChange(e) {
-        setLoginForm({...loginForm, [e.target.name]: e.target.value});
-    }
-
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-
-    //     getUser(loginForm.email);
-    //     setLoginForm(initLoginForm);
-    // }
-
-    async function getUserAccount(email) {
-        const URL = `${DB_URL}/users/`;
-
-        try {
-            const response = await fetch(URL);
-            const allUserAccounts = await response.json();
-            
-            setUserAccount(allUserAccounts);
-        } catch(err) {
-            console.log(err);
-        }
-    }
+    const { DB_URL, setUserAccount, registerUser } = useContext(Context);
 
     return (
         <div className="default-page">
@@ -45,8 +15,9 @@ export default function DefaultPage(props) {
             </div>
             <LoginForm handleChange={handleChange} loginForm={loginForm} />
             <div className="registration-info">
-                <p>Don't yet have an account? <Link to={'/register/'}>Click here</Link> to get registered!</p>
+                <p>Don't yet have an account? Fill out the form below to get registered!</p>
             </div>
+            <RegisterForm signal={registerUser}/>
         </div>
     );
 }

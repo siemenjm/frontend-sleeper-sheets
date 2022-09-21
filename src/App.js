@@ -140,7 +140,7 @@ export default function App() {
     useEffect(() => {
         console.log('updating user info in App');
         getUser();
-    }, [currentUser._id]);
+    }, []);
 
     // useEffect(() => {
     //     getWeeklyData();

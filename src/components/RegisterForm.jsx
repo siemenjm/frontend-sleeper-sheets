@@ -1,13 +1,13 @@
+import { useState } from "react";
 import { useNavigate } from "react-router"
 
-export default function RegisterForm({ signal, ...rest }) {
+export default function RegisterForm({ signal }) {
     const navigate = useNavigate();
-    const data = { ...rest };
-    const { login } = data;
 
     const [userInput, setUserInput] = useState({
         email: '',
         password: '',
+        sleeperName: '',
     });
 
     function handleChange(e) {
@@ -19,9 +19,46 @@ export default function RegisterForm({ signal, ...rest }) {
         try {
             const authResponse = await signal(userInput);
             console.log(authResponse);
-            navigate('/user', { replace: true }); // need to change route
+            navigate('/user/', { replace: true }); // need to change route
         } catch(err) {
+            console.log('Failed to log in');
             navigate('/', { replace: true })
         }
     }
+
+    return (
+        <form onSubmit={handleSubmit} className='register-form'>
+            <label htmlFor="register-email">Enter Email</label>
+            <input
+                type="email"
+                required
+                name="email"
+                id="register-email"
+                placeholder="Enter email..."
+                value={userInput.email}
+                onChange={handleChange}
+            />
+            <label htmlFor="register-password">Enter Password</label>
+            <input
+                type="password"
+                required
+                name="password"
+                id="register-password"
+                placeholder="********"
+                value={userInput.password}
+                onChange={handleChange}
+            />
+            <label htmlFor="register-sleeperName">Enter Sleeper App Username</label>
+            <input
+                type="text"
+                required
+                name="sleeperName"
+                id="register-sleeperName"
+                placeholder="Enter Sleeper App username..."
+                value={userInput.sleeperName}
+                onChange={handleChange}
+            />
+            <button type="submit">Register</button>
+        </form>
+    );
 }
