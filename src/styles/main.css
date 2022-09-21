@@ -23,6 +23,10 @@ p, h1, h2, h3, h4 {
     cursor: default;
 }
 
+a, button, a > h1, a > h2, a > h3, a > h4 {
+    cursor: pointer;
+}
+
 h3 {
     font-size: 14px;
     font-weight: normal;
@@ -55,6 +59,10 @@ body {
     padding: 1rem;
 }
 
+.sidebar > a {
+    text-decoration: none;
+}
+
 .sidebar img {
     border-radius: 10px;
 }
@@ -62,11 +70,6 @@ body {
 .app-name {
     color: var(--accent-blue);
     text-align: center;
-    margin-bottom: 1rem;
-}
-
-.app-info > p {
-    font-size: 1.3rem;
     margin-bottom: 1rem;
 }
 
@@ -144,6 +147,20 @@ main {
     display: flex;
     flex-direction: column;
     padding: 1rem 0 1rem 2rem;
+}
+
+.app-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.app-info > * {
+    max-width: 500px;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .info-header {
