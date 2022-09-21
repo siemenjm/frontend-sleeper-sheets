@@ -1,5 +1,6 @@
 import { Context } from "context/Context";
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import User from "./User";
 import UserForm from "./UserForm";
 
@@ -38,8 +39,9 @@ export default function Sidebar(props) {
     return (
         <>
             <div className="sidebar">
-                <h2>Sidebar Comp</h2>
-                <div className="app-info"></div>
+                <Link to='/'>
+                    <h1 className="app-name">Sleeper Sheets</h1>
+                </Link>
                 <UserForm
                     handleSubmit={handleSubmit}
                     handleChange={handleChange}

@@ -1,13 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 
 export default function PageHeader(props) {
-    const { id } = useParams();
+    const { userId, leagueId } = useParams();
     return (
         <>
             <ul className="page-header">
-                <Link to={`/league/${id}/matchup/`}>Matchup</Link>
-                <Link to={`/league/${id}/team/`}>Team</Link>
-                <Link to={`/league/${id}/league/`}>League</Link>
+                <Link to={`/user/${userId}/league/${leagueId}/matchup/`}>Matchup</Link>
+                <Link to={`/user/${userId}/league/${leagueId}/team/`}>Team</Link>
+                <Link to={`/user/${userId}/league/${leagueId}/league/`}>League</Link>
             </ul>
         </>
     );

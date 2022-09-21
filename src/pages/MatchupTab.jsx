@@ -1,4 +1,6 @@
+import BenchPositions from "components/BenchPositions";
 import MatchupSummary from "components/MatchupSummary";
+import StarterPositions from "components/StarterPositions";
 import UserBenchList from "components/UserBenchList";
 import UserStarterList from "components/UserStarterList";
 
@@ -32,6 +34,8 @@ export default function MatchupTab({ userId, getUserInfo, getUserOpponentId, get
                         <UserBenchList roster={userRoster} matchup={userMatchup}/>
                     </div>
                 </div>
+                <StarterPositions />
+                <BenchPositions />
                 <div className="opponent-matchup-details">
                     <div className="opponent-starters">
                         <h2>Starters</h2>

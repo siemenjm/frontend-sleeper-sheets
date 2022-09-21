@@ -5,7 +5,7 @@ export default function InfoHeader({league}) {
         <>
             <div className="info-header">
                 <Avatar avatar={league.avatar} type='league'/>
-                <p className="league-name">Name: {league.name}</p>
+                <h2 className="league-name">{league.name}</h2>
             </div>
         </>
     );

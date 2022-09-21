@@ -1,3 +1,4 @@
+import Avatar from "./Avatar";
 import UserLeagues from "./UserLeagues";
 
 export default function User({user}) {    
@@ -13,12 +14,14 @@ export default function User({user}) {
         return (
             <>
                 <div className="user-info">
-                    <h3>Current User</h3>
-                    <p className="user-avatar">Avatar: {user.avatar}</p>
-                    <p className="username">Username: {user.username}</p>
+                    <h2>Current User</h2>
+                    <div>
+                        <Avatar avatar={user.avatar} type='user' />
+                        <p className="username">{user.username}</p>
+                    </div>
                 </div>
                 <div className="league-info">
-                    <h3>Current Leagues</h3>
+                    <h2>Current Leagues</h2>
                     <UserLeagues userId={user.user_id}/>
                 </div>
             </>

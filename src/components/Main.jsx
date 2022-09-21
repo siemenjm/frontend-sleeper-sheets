@@ -7,7 +7,8 @@ export default function Main({BASE_URL, user}) {
         <main>
             <Routes>
                 <Route exact path="/" element={<DefaultPage />} />
-                <Route path="/league/:id/*" element={<LeaguePage BASE_URL={BASE_URL} user={user}/>} />
+                <Route path="/user/:userId/league/:leagueId/*" element={<LeaguePage BASE_URL={BASE_URL} user={user}/>} />
+                <Route path="*" element={<DefaultPage />} />
             </Routes>
         </main>
     );
