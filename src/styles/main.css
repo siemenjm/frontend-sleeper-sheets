@@ -48,11 +48,49 @@ body {
     border: 1px solid var(--lighter-blue);
     border-radius: 2rem;
     margin: 2rem 0;
+    padding: 1rem;
+}
+
+.app-name {
+    color: var(--accent-blue);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.app-info > p {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.user-form {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.user-form input {
+    font-size: 1.3rem;
+    color: var(--darkest--blue);
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.user-form > button {
+    color: var(--darkest--blue);
+    background-color: var(--accent-blue);
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+}
+
+.league-list {
+    margin-top: 1rem;
 }
 
 .league {
-    margin: 1.5rem;
-    padding: 1rem;
+    margin-bottom: 1rem;
     border-radius: 10px;
 }
 

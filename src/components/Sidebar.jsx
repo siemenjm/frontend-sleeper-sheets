@@ -38,8 +38,10 @@ export default function Sidebar(props) {
     return (
         <>
             <div className="sidebar">
-                <h2 className="app-name">Sleeper Sheets</h2>
-                <div className="app-info"></div>
+                <h1 className="app-name">Sleeper Sheets</h1>
+                <div className="app-info">
+                    <p>Enter your Sleeper App username to see all your team, league, and matchup stats!</p>
+                </div>
                 <UserForm
                     handleSubmit={handleSubmit}
                     handleChange={handleChange}

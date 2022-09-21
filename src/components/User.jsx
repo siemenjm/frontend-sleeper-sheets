@@ -18,7 +18,7 @@ export default function User({user}) {
                     <p className="username">Username: {user.username}</p>
                 </div>
                 <div className="league-info">
-                    <h3>Current Leagues</h3>
+                    <h2>Current Leagues</h2>
                     <UserLeagues userId={user.user_id}/>
                 </div>
             </>
