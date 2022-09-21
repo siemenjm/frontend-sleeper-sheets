@@ -17,7 +17,7 @@ export default function UserLeagues({userId}) {
             const allLeagues = await response.json();
 
             setLeague(allLeagues[0]);
-            navigate(`/league/${allLeagues[0].league_id}/${subPage}`);
+            navigate(`/user/${userId}/league/${allLeagues[0].league_id}/${subPage}`);
 
             setLeagueList(allLeagues);
         } catch(err) {
