@@ -1,6 +1,7 @@
 import DefaultPage from "pages/DefaultPage";
 import LeaguePage from "pages/LeaguePage";
 import { Route, Routes } from "react-router";
+import Sidebar from "./Sidebar";
 
 export default function Main(props) { 
     return (

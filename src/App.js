@@ -3,7 +3,9 @@ import Sidebar from "components/Sidebar";
 import { useEffect, useState } from 'react';
 import Main from 'components/Main';
 import { Context } from 'context/Context';
-import { useParams } from 'react-router';
+import { Outlet, Route, Routes, useParams } from 'react-router';
+import DefaultPage from 'pages/DefaultPage';
+import LeaguePage from 'pages/LeaguePage';
 
 const URLS = {
     API_BASE_URL: 'https://api.sleeper.app/v1/',
@@ -25,6 +27,15 @@ export default function App() {
     const [currentUser, setCurrentUser] = useState(null);
     const [currentLeague, setCurrentLeague] = useState(null);
     const [allLeagues, setAllLeagues] = useState(null);
+    
+    // const [userParam, setUserParam] = useState(null);
+    // const [leagueParam, setLeagueParam] = useState(null);
+    const [allParams, setAllParams] = useState({
+        currentUserId: null,
+        currentLeagueId: null
+    });
+
+    console.log(allParams);
 
     
 
@@ -79,13 +90,21 @@ export default function App() {
 
     useEffect(() => {
         getWeeklyData();
+        if (!currentUser && allParams.currentUserId) {
+            setCurrentUser(allParams.currentUserId);
+        }
     }, []);
 
     return (
         <>
-            <Context.Provider value={{ URLS, currentUser, setCurrentUser, currentLeague, setCurrentLeague, allLeagues, setAllLeagues, weeklyData }}>
+            <Context.Provider value={{ URLS, currentUser, setCurrentUser, currentLeague, setCurrentLeague, allLeagues, setAllLeagues, allParams, setAllParams, weeklyData }}>
                 <Sidebar />
-                <Main />
+                <Outlet />
+                <Routes>
+                    <Route exact path="/" element={<DefaultPage />} />
+                    <Route path="/user/:userId/league/:leagueId/*" element={<LeaguePage />} />
+                    <Route path="*" element={<DefaultPage />} />
+                </Routes>
             </Context.Provider>
         </>
     );
