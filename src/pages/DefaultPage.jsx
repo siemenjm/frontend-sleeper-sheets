@@ -1,10 +1,10 @@
 import LoginForm from "components/LoginForm";
 import RegisterForm from "components/RegisterForm";
 import { Context } from "context/Context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 export default function DefaultPage(props) {
-    const { DB_URL, setUserAccount, registerUser } = useContext(Context);
+    const { registerUser } = useContext(Context);
 
     return (
         <div className="default-page">
@@ -13,7 +13,7 @@ export default function DefaultPage(props) {
                 <h2>Create an account and enter your Sleeper App username to see all your team, league, and matchup stats!</h2>
                 <p>Note: If the Sleeper App username that you input is not in use, this app will not work...</p>
             </div>
-            <LoginForm handleChange={handleChange} loginForm={loginForm} />
+            <LoginForm signal={registerUser}/>
             <div className="registration-info">
                 <p>Don't yet have an account? Fill out the form below to get registered!</p>
             </div>
