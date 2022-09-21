@@ -5,9 +5,8 @@ import User from "./User";
 import UserForm from "./UserForm";
 
 export default function Sidebar(props) {
-    const { BASE_URL, user, setUser} = useContext(Context);
-
-    const USER_URL = `${BASE_URL}user/`;
+    const { URLS, currentUser, setCurrentUser} = useContext(Context);
+    const FETCH_USER_URL = URLS.FETCH_USER_URL;
     
     const initUserForm = {username: ''};
     const [userForm, setUserForm] = useState(initUserForm);
@@ -19,18 +18,18 @@ export default function Sidebar(props) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        getUser(userForm.username);
+        getCurrentUser(userForm.username);
         setUserForm(initUserForm);
     }
-
-    async function getUser(username) {
-        const URL = `${USER_URL}${username}`;
-
+    
+    async function getCurrentUser(username) {
+        const URL = `${FETCH_USER_URL}${username}`;
+        
         try {
             const response = await fetch(URL);
             const userData = await response.json();
             
-            setUser(userData);
+            setCurrentUser(userData);
         } catch(err) {
             console.log(err);
         }
@@ -47,7 +46,7 @@ export default function Sidebar(props) {
                     handleChange={handleChange}
                     userForm={userForm}
                 />
-                {user ? <User user={user}/> : ''}
+                {currentUser ? <User currentUser={currentUser}/> : ''}
             </div>
         </>
     );

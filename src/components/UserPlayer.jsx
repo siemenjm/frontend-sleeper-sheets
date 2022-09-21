@@ -7,24 +7,24 @@ export default function UserPlayer({ playerId, points }) {
     const staticPlayerInfo = playerData[playerId];
     const fantasyPositions = staticPlayerInfo.fantasy_positions.join();
 
-    const { league, weeklyData } = useContext(Context);
+    const { currentLeague, weeklyData } = useContext(Context);
     const weeklyProj = weeklyData.weeklyProj;
 
-    if (!weeklyProj || !league) {
+    if (!weeklyProj || !currentLeague) {
         return <h2>Loading data...</h2>
     }
 
-    function getLeagueScoringType(league) {
-        if (league.scoring_settings.rec === 0) {
+    function getLeagueScoringType(currentLeague) {
+        if (currentLeague.scoring_settings.rec === 0) {
             return 'pts_std';
-        } else if (league.scoring_settings.rec === 0.5) {
+        } else if (currentLeague.scoring_settings.rec === 0.5) {
             return 'pts_half_ppr';
         } else {
             return 'pts_ppr';
         }
     }
 
-    const scoring = getLeagueScoringType(league);
+    const scoring = getLeagueScoringType(currentLeague);
     let projectedPoints = weeklyProj[playerId][scoring];
     if (!projectedPoints) {
         projectedPoints = 0.00;

@@ -2,9 +2,9 @@ import { Context } from "context/Context";
 import { useContext } from "react";
 
 export default function IRPositions(props) {
-    const { league } = useContext(Context);
+    const { currentLeague } = useContext(Context);
 
-    const IRSlots = league.settings.reserve_slots;
+    const IRSlots = currentLeague.settings.reserve_slots;
     
     const IRPositions = [];
     for (let i = 0; i < IRSlots; i++) {

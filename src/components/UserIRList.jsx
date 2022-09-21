@@ -3,9 +3,9 @@ import { useContext } from "react";
 import UserPlayer from "./UserPlayer";
 
 export default function UserIRList({ roster }) {
-    const { league } = useContext(Context);
+    const { currentLeague } = useContext(Context);
 
-    const IRSlots = league.settings.reserve_slots;
+    const IRSlots = currentLeague.settings.reserve_slots;
     
     const allIR = roster.reserve;
 

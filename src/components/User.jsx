@@ -1,14 +1,14 @@
 import Avatar from "./Avatar";
 import UserLeagues from "./UserLeagues";
 
-export default function User({user}) {    
-    function loading() {
-        return (
-            <>
-                <p>Loading user data...</p>
-            </>
-        );
-    }
+export default function User({ currentUser }) {
+    // function loading() {
+    //     return (
+    //         <>
+    //             <p>Loading user data...</p>
+    //         </>
+    //     );
+    // }
 
     function loaded() {
         return (
@@ -16,13 +16,13 @@ export default function User({user}) {
                 <div className="user-info">
                     <h2>Current User</h2>
                     <div>
-                        <Avatar avatar={user.avatar} type='user' />
-                        <p className="username">{user.username}</p>
+                        <Avatar avatar={currentUser.avatar} type='user' />
+                        <p className="username">{currentUser.username}</p>
                     </div>
                 </div>
                 <div className="league-info">
                     <h2>Current Leagues</h2>
-                    <UserLeagues userId={user.user_id}/>
+                    <UserLeagues />
                 </div>
             </>
         );
@@ -30,7 +30,8 @@ export default function User({user}) {
     
     return ( 
         <>
-            {user ? loaded() : loading()}
+            {/* {currentUser ? loaded() : loading()} */}
+            {loaded()}
         </>
     );
 }

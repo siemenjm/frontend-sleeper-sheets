@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "context/Context";
 
-export default function League({league, setLeague, subPage}) {
-    const { user } = useContext(Context);
+export default function League({league, setCurrentLeague}) {
+    const { currentUser } = useContext(Context);
     
     function handleClick(e) {
-        setLeague(league);
+        setCurrentLeague(league);
     } 
 
     return ( 
         <div className="league">
-            <Link onClick={handleClick} to={`/user/${user.user_id}/league/${league.league_id}/${subPage}`}>
+            <Link onClick={handleClick} to={`/user/${currentUser.user_id}/league/${league.league_id}/matchup/`}>
                 <Avatar avatar={league.avatar} type='league'/>
                 <p className="league-name">{league.name}</p>
             </Link>

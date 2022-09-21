@@ -2,24 +2,24 @@ import { Context } from "context/Context";
 import { useContext } from "react";
 
 export default function MatchupSummary({ user, roster, matchup }) {
-    const { league, weeklyData } = useContext(Context);
+    const { currentLeague, weeklyData } = useContext(Context);
     const weeklyProj = weeklyData.weeklyProj;
 
-    if (!weeklyProj || !league) {
+    if (!weeklyProj || !currentLeague) {
         return <h2>Loading data...</h2>
     }
 
-    function getLeagueScoringType(league) {
-        if (league.scoring_settings.rec === 0) {
+    function getLeagueScoringType(currentLeague) {
+        if (currentLeague.scoring_settings.rec === 0) {
             return 'pts_std';
-        } else if (league.scoring_settings.rec === 0.5) {
+        } else if (currentLeague.scoring_settings.rec === 0.5) {
             return 'pts_half_ppr';
         } else {
             return 'pts_ppr';
         }
     }
 
-    const scoring = getLeagueScoringType(league);
+    const scoring = getLeagueScoringType(currentLeague);
 
     const starterProj = matchup.starters.map((starter) => {
         return weeklyProj[starter][scoring];

@@ -2,14 +2,14 @@ import { Context } from "context/Context";
 import { useContext } from "react";
 
 export default function BenchPositions(props) {
-    const { league } = useContext(Context);
+    const { currentLeague } = useContext(Context);
 
-    const allPositions = league.roster_positions;
+    const allPositions = currentLeague.roster_positions;
     const benchPositions = allPositions.filter((position) => {
         return position === 'BN';
     });
 
-    const taxiSlots = league.settings.taxi_slots;
+    const taxiSlots = currentLeague.settings.taxi_slots;
 
     const benchCount = benchPositions.length + taxiSlots;
     let displayedBenchPositions = [];

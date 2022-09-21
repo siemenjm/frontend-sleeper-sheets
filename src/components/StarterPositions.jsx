@@ -2,9 +2,9 @@ import { Context } from "context/Context";
 import { useContext } from "react";
 
 export default function StarterPositions(props) {
-    const { league } = useContext(Context);
+    const { currentLeague } = useContext(Context);
 
-    const allPositions = league.roster_positions;
+    const allPositions = currentLeague.roster_positions;
     const starterPositions = allPositions.filter((position) => {
         return position !== 'BN';
     });

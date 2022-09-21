@@ -7,7 +7,8 @@ import { useContext, useEffect, useState } from "react";
 import { Routes, Route } from "react-router";
 
 export default function Pages(props) {
-    const { BASE_URL, user, league } = useContext(Context);
+    const { URLS, currentUser, currentLeague } = useContext(Context);
+    const API_BASE_URL = URLS.API_BASE_URL;
     const [data, setData] = useState({
         users: null,
         rosters: null,
@@ -15,7 +16,7 @@ export default function Pages(props) {
     });
 
     async function getUsers() {
-        const URL = `${BASE_URL}league/${league.league_id}/users`;
+        const URL = `${API_BASE_URL}league/${currentLeague.league_id}/users`;
         
         try {
             const response = await fetch(URL);
@@ -28,7 +29,7 @@ export default function Pages(props) {
     }
 
     async function getRosters() {
-        const URL = `${BASE_URL}league/${league.league_id}/rosters`;
+        const URL = `${API_BASE_URL}league/${currentLeague.league_id}/rosters`;
 
         try {
             const response = await fetch(URL);
@@ -41,7 +42,7 @@ export default function Pages(props) {
     }
 
     async function getMatchups() {
-        const URL = `${BASE_URL}league/${league.league_id}/matchups/2`;
+        const URL = `${API_BASE_URL}league/${currentLeague.league_id}/matchups/2`;
 
         try {
             const response = await fetch(URL);
@@ -67,7 +68,7 @@ export default function Pages(props) {
 
     useEffect(() => {
         getData();
-    }, [league]);
+    }, [currentLeague]);
 
     if (!data.users || !data.rosters || !data.matchups) {
         return <h2>Loading data...</h2>
@@ -124,8 +125,8 @@ export default function Pages(props) {
     return (
         <>
             <Routes>
-                <Route path={`/matchup/`} element={<MatchupTab userId={user.user_id} getUserInfo={getUserInfo} getUserOpponentId={getUserOpponentId} getUserRoster={getUserRoster}  getUserMatchup={getUserMatchup} />} />
-                <Route path={`/team/`} element={<TeamTab userId={user.user_id}  getUserInfo={getUserInfo} getUserRoster={getUserRoster} getUserMatchup={getUserMatchup} />} />
+                <Route path={`/matchup/`} element={<MatchupTab userId={currentUser.user_id} getUserInfo={getUserInfo} getUserOpponentId={getUserOpponentId} getUserRoster={getUserRoster}  getUserMatchup={getUserMatchup} />} />
+                <Route path={`/team/`} element={<TeamTab userId={currentUser.user_id}  getUserInfo={getUserInfo} getUserRoster={getUserRoster} getUserMatchup={getUserMatchup} />} />
                 <Route path={`/league/`} element={<LeagueTab users={data.users} rosters={data.rosters} matchups={data.matchups} />} />
                 <Route path="/*" element={<DefaultPage />} />
             </Routes>
