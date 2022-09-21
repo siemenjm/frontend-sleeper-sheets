@@ -10,7 +10,7 @@ export default function League({league, setLeague, subPage}) {
         <div className="league">
             <Link onClick={handleClick} to={`/league/${league.league_id}/${subPage}`}>
                 <Avatar avatar={league.avatar} type='league'/>
-                <p className="league-name">Name: {league.name}</p>
+                <p className="league-name">{league.name}</p>
             </Link>
         </div>
     );

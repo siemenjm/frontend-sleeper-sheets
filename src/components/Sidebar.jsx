@@ -38,7 +38,7 @@ export default function Sidebar(props) {
     return (
         <>
             <div className="sidebar">
-                <h2>Sidebar Comp</h2>
+                <h2 className="app-name">Sleeper Sheets</h2>
                 <div className="app-info"></div>
                 <UserForm
                     handleSubmit={handleSubmit}

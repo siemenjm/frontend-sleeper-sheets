@@ -50,6 +50,29 @@ body {
     margin: 2rem 0;
 }
 
+.league {
+    margin: 1.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.league:hover {
+    background-color: var(--blue);
+}
+
+.league > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+}
+
+.league > a > p {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
 main {
     grid-area: 1 / 2 / span 1 / span 1;
     width: 100%;
