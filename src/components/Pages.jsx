@@ -1,5 +1,5 @@
 import { Context } from "context/Context";
-import DefaultPage from "pages/DefaultPage";
+import LoginPage from "pages/LoginPage";
 import LeagueTab from "pages/LeagueTab";
 import MatchupTab from "pages/MatchupTab";
 import TeamTab from "pages/TeamTab";
@@ -127,7 +127,7 @@ export default function Pages(props) {
                 <Route path={`/matchup/`} element={<MatchupTab userId={user.user_id} getUserInfo={getUserInfo} getUserOpponentId={getUserOpponentId} getUserRoster={getUserRoster}  getUserMatchup={getUserMatchup} />} />
                 <Route path={`/team/`} element={<TeamTab userId={user.user_id}  getUserInfo={getUserInfo} getUserRoster={getUserRoster} getUserMatchup={getUserMatchup} />} />
                 <Route path={`/league/`} element={<LeagueTab users={data.users} rosters={data.rosters} matchups={data.matchups} />} />
-                <Route path="/*" element={<DefaultPage />} />
+                <Route path="/*" element={<LoginPage />} />
             </Routes>
         </>
     );
