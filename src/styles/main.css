@@ -51,6 +51,10 @@ body {
     padding: 1rem;
 }
 
+.sidebar img {
+    border-radius: 10px;
+}
+
 .app-name {
     color: var(--accent-blue);
     text-align: center;
@@ -72,6 +76,11 @@ body {
     color: var(--darkest--blue);
     width: 100%;
     margin-bottom: 1rem;
+    border: 1px solid var(--blue);
+}
+
+.user-form input:focus-visible {
+    outline: 1px solid var(--accent-blue);
 }
 
 .user-form > button {
@@ -83,6 +92,17 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     padding: 0.75rem 1.5rem;
+}
+
+.user-info {
+    margin-bottom: 1.5rem;
+}
+
+.user-info > div {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .league-list {
@@ -105,10 +125,12 @@ body {
     text-decoration: none;
 }
 
-.league > a > p {
+.league > a > p, .user-info .username {
     font-size: 1rem;
     font-weight: bold;
     margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    text-align: right;
 }
 
 main {
