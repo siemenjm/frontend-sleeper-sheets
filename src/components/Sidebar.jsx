@@ -36,10 +36,14 @@ export default function Sidebar(props) {
         }
     }
 
+    function handleClick(e) {
+        window.location.href='/';
+    }
+
     return (
         <>
             <div className="sidebar">
-                <Link to='/'>
+                <Link to='/' onClick={handleClick}>
                     <h1 className="app-name">Sleeper Sheets</h1>
                 </Link>
                 <UserForm
