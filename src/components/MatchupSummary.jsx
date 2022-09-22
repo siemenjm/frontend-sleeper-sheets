@@ -20,16 +20,16 @@ export default function MatchupSummary({ user, roster, matchup }) {
     }
 
     const scoring = getLeagueScoringType(league);
-
     const starterProj = matchup.starters.map((starter) => {
+        if (starter === '0') {
+            return 0.00;
+        }
         return weeklyProj[starter][scoring];
     });
 
     const starterProjSum = starterProj.reduce((total, num) => {
         return total + num;
     }, 0);
-
-    console.log(user);
 
     return (
         <>
