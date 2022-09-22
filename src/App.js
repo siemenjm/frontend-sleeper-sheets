@@ -7,7 +7,7 @@ import { setUserToken, clearUserToken, getUserToken } from './utils/authToken';
 import decode from 'jwt-decode';
 
 const BASE_URL = 'https://api.sleeper.app/v1/';
-const DB_URL = 'http://localhost:4000';
+const DB_URL = 'https://backend-sleeper-sheets.herokuapp.com/';
 
 export default function App() {
     const [currentUser, setCurrentUser] = useState(null);
@@ -67,7 +67,7 @@ export default function App() {
             };
 
             const newUser = await fetch(
-                "http://localhost:4000/auth/register",
+                `${DB_URL}auth/register`,
                 configs
             );
 
@@ -96,7 +96,7 @@ export default function App() {
                   "Content-Type": "application/json",
                 },
             };
-            const response = await fetch("http://localhost:4000/auth/login", configs);
+            const response = await fetch(`${DB_URL}auth/login`, configs);
             const user = await response.json();
             
             setUserToken(user.token);
@@ -119,7 +119,7 @@ export default function App() {
             if (token) {
                 const user = decode(token);
                 const response = await fetch(
-                  `http://localhost:4000/auth/user/${user.id}`, {headers: {"Authorization":`bearer ${token}`}}
+                  `${DB_URL}auth/user/${user.id}`, {headers: {"Authorization":`bearer ${token}`}}
                 );
                 const foundUser = await response.json();
                 setCurrentUser(foundUser);
