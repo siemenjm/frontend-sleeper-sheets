@@ -6,7 +6,6 @@ import UserForm from "./UserForm";
 
 export default function Sidebar(props) {
     const { BASE_URL, currentUser, logoutUser, sleeperUser, setSleeperUser } = useContext(Context);
-    console.log(currentUser);
     // const USER_URL = `${BASE_URL}user/`;
     
     // const initUserForm = {username: ''};

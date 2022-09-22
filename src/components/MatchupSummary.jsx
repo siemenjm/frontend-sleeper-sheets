@@ -29,6 +29,8 @@ export default function MatchupSummary({ user, roster, matchup }) {
         return total + num;
     }, 0);
 
+    console.log(user);
+
     return (
         <>
             <div className="top-row">

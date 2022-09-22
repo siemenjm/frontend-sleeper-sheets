@@ -6,16 +6,12 @@ import UserLeagues from "./UserLeagues";
 
 export default function User(props) {
     const { currentUser, sleeperUser, setSleeperUser, logoutUser } = useContext(Context);
-    console.log(currentUser);
-    console.log(sleeperUser);
     
     async function getSleeperUser() {
-        console.log(currentUser.sleeperName);
         const URL = `https://api.sleeper.app/v1/user/${currentUser.sleeperName}`;
         try {
             const response = await fetch(URL);
             const sleeperUserData = await response.json();
-            console.log(sleeperUserData);
 
             setSleeperUser(sleeperUserData);
         } catch(err) {
@@ -31,8 +27,6 @@ export default function User(props) {
         return <h2>No user with that Sleeper App username...</h2>
         // add button to change your sleeper app username here
     }
-
-    console.log(sleeperUser);
 
     return (
         <>

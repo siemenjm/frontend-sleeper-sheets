@@ -143,11 +143,8 @@ export default function App() {
     useEffect(() => {
         console.log('updating user info in App');
         getUser();
+        getWeeklyData();
     }, []);
-
-    // useEffect(() => {
-    //     getWeeklyData();
-    // }, []);
 
     function logoutUser() {
         clearUserToken();

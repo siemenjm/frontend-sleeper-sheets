@@ -7,7 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import { Routes, Route } from "react-router";
 
 export default function Pages(props) {
-    const { BASE_URL, user, league } = useContext(Context);
+    const { BASE_URL, sleeperUser, league } = useContext(Context);
     const [data, setData] = useState({
         users: null,
         rosters: null,
@@ -124,8 +124,8 @@ export default function Pages(props) {
     return (
         <>
             <Routes>
-                <Route path={`/matchup/`} element={<MatchupTab userId={user.user_id} getUserInfo={getUserInfo} getUserOpponentId={getUserOpponentId} getUserRoster={getUserRoster}  getUserMatchup={getUserMatchup} />} />
-                <Route path={`/team/`} element={<TeamTab userId={user.user_id}  getUserInfo={getUserInfo} getUserRoster={getUserRoster} getUserMatchup={getUserMatchup} />} />
+                <Route path={`/matchup/`} element={<MatchupTab userId={sleeperUser.user_id} getUserInfo={getUserInfo} getUserOpponentId={getUserOpponentId} getUserRoster={getUserRoster}  getUserMatchup={getUserMatchup} />} />
+                <Route path={`/team/`} element={<TeamTab userId={sleeperUser.user_id}  getUserInfo={getUserInfo} getUserRoster={getUserRoster} getUserMatchup={getUserMatchup} />} />
                 <Route path={`/league/`} element={<LeagueTab users={data.users} rosters={data.rosters} matchups={data.matchups} />} />
                 <Route path="/*" element={<DefaultPage />} />
             </Routes>

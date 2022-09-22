@@ -9,15 +9,12 @@ export default function UserLeagues(props) {
     
     const [leagueList, setLeagueList] = useState(null);
     const { sleeperUser, setLeague } = useContext(Context);
-    console.log(sleeperUser);
 
     async function getLeagues(sleeperId) {
-        console.log(sleeperId);
         const URL = `${BASE_URL}${sleeperId}/leagues/nfl/2022`;
         try {
             const response = await fetch(URL);
             const allLeagues = await response.json();
-            console.log(allLeagues);
 
             setLeague(allLeagues[0]);
             navigate(`/user/${sleeperId}/league/${allLeagues[0].league_id}/matchup/`);
