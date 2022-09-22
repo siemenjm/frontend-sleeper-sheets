@@ -30,14 +30,23 @@ export default function UserPlayer({ playerId, points }) {
         projectedPoints = 0.00;
     }
 
+    let currentTeam, teamLogo;
+    if (!staticPlayerInfo.team) {
+        currentTeam = 'FA'
+        teamLogo = 'https://sleepercdn.com/images/v2/icons/league/nfl/lilac.png';
+    } else {
+        currentTeam = staticPlayerInfo.team;
+        teamLogo = `https://sleepercdn.com/images/team_logos/nfl/${staticPlayerInfo.team.toLowerCase()}.png`;
+    }
+
     return (
         <>
             <div className="player-summary">
                 <div className="top-row">
-                    <img src={fantasyPositions === 'DEF' ? `https://sleepercdn.com/images/team_logos/nfl/${staticPlayerInfo.team.toLowerCase()}.png` : `https://sleepercdn.com/content/nfl/players/${playerId}.jpg`} alt={staticPlayerInfo.full_name} className="player-img" />
-                    <img src={`https://sleepercdn.com/images/team_logos/nfl/${staticPlayerInfo.team.toLowerCase()}.png`} alt={`${staticPlayerInfo.team} logo`} className="player-team-logo" />
-                    <h3 className='player-name'>{staticPlayerInfo.full_name ? staticPlayerInfo.full_name : staticPlayerInfo.team}</h3>
-                    <p className='player-pos-team'>{fantasyPositions} - {staticPlayerInfo.team}</p>
+                    <img src={fantasyPositions === 'DEF' ? teamLogo : `https://sleepercdn.com/content/nfl/players/${playerId}.jpg`} alt={staticPlayerInfo.full_name} className="player-img" />
+                    <img src={teamLogo} alt={`${currentTeam} logo`} className="player-team-logo" />
+                    <h3 className='player-name'>{staticPlayerInfo.full_name ? staticPlayerInfo.full_name : currentTeam}</h3>
+                    <p className='player-pos-team'>{fantasyPositions} - {currentTeam}</p>
                     <p className='player-current-points'>{points.toFixed(2)}</p>
                 </div>
                 <div className="bottom-row">
