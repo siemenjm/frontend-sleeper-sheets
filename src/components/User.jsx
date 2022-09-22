@@ -41,7 +41,7 @@ export default function User(props) {
                 <h2>Current Leagues</h2>
                 <UserLeagues />
             </div>
-            <Link onClick={logoutUser} to='/'>Logout {sleeperUser.username}</Link>
+            <Link onClick={logoutUser} to='/' className="logout-link">Logout {sleeperUser.username}</Link>
         </>
     );
 }

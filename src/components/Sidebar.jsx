@@ -36,7 +36,8 @@ export default function Sidebar(props) {
     // }
 
     function handleClick(e) {
-        window.location.href='/';
+        logoutUser();
+        // window.location.href='/';
     }
 
     if (!currentUser) {
