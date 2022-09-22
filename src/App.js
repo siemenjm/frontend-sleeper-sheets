@@ -76,7 +76,7 @@ export default function App() {
             console.log(parsedUser);
 
             setUserToken(parsedUser.token);
-            setCurrentUser(parsedUser.currentUser);
+            setCurrentUser(parsedUser.user);
             setIsAuthenticated(parsedUser.isLoggedIn);
 
             return parsedUser;    
