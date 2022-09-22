@@ -77,8 +77,11 @@ body {
 }
 
 form {
+    margin-left: auto;
+    margin-right: auto;
     font-size: 1.3rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
+    width: 250px;
 }
 
 form input {
@@ -170,7 +173,7 @@ main {
     padding: 1rem 0 1rem 2rem;
 }
 
-.app-info {
+.app-info, .registration-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -178,10 +181,15 @@ main {
     margin: auto;
 }
 
-.app-info > * {
+.app-info > *, .registration-info > * {
     max-width: 500px;
     text-align: center;
     margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.app-info > p {
+    color: var(--accent-blue);
 }
 
 .info-header {
