@@ -168,7 +168,7 @@ export default function App() {
                 subPage,
                 setSubPage,
                 weeklyData }}>
-                {/* <Sidebar /> */}
+                <Sidebar />
                 <Main />
             </Context.Provider>
         </>

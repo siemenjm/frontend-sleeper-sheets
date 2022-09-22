@@ -4,7 +4,7 @@ import { Context } from "context/Context";
 import { useContext } from "react";
 
 export default function DefaultPage(props) {
-    const { registerUser } = useContext(Context);
+    const { loginUser, registerUser } = useContext(Context);
 
     return (
         <div className="default-page">
@@ -13,7 +13,7 @@ export default function DefaultPage(props) {
                 <h2>Create an account and enter your Sleeper App username to see all your team, league, and matchup stats!</h2>
                 <p>Note: If the Sleeper App username that you input is not in use, this app will not work...</p>
             </div>
-            <LoginForm signal={registerUser}/>
+            <LoginForm signal={loginUser}/>
             <div className="registration-info">
                 <p>Don't yet have an account? Fill out the form below to get registered!</p>
             </div>
