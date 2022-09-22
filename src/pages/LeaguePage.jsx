@@ -4,10 +4,10 @@ import Pages from "components/Pages";
 import { Context } from "context/Context";
 import { useContext } from "react";
 
-export default function LeaguePage({BASE_URL, user}) {
-    const { league } = useContext(Context);
+export default function LeaguePage(props) {
+    const { league, currentUser } = useContext(Context);
 
-    if (!league) {
+    if (!currentUser) {
         return <h2>Loading league data...</h2>;
     }
 

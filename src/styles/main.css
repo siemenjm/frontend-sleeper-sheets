@@ -46,17 +46,20 @@ body {
     max-height: 100%;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: 1fr;
 }
 
 .sidebar {
+    width: 250px;
     background-color: var(--dark-blue);
     grid-area: 1 / 1 / span 1 / span 1;
     border: 1px solid var(--lighter-blue);
     border-radius: 2rem;
     margin: 2rem 0;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar > a {
@@ -70,15 +73,18 @@ body {
 .app-name {
     color: var(--accent-blue);
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 }
 
-.user-form {
+form {
+    margin-left: auto;
+    margin-right: auto;
     font-size: 1.3rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
+    width: 250px;
 }
 
-.user-form input {
+form input {
     font-size: 1.3rem;
     color: var(--darkest--blue);
     width: 100%;
@@ -86,11 +92,11 @@ body {
     border: 1px solid var(--blue);
 }
 
-.user-form input:focus-visible {
+form input:focus-visible {
     outline: 1px solid var(--accent-blue);
 }
 
-.user-form > button {
+form > button {
     color: var(--darkest--blue);
     background-color: var(--accent-blue);
     border: none;
@@ -140,6 +146,24 @@ body {
     text-align: right;
 }
 
+.active-league {
+    background-color: var(--lighter-blue);
+}
+
+.active-league > a > p {
+    color: var(--accent-blue);
+}
+
+.logout-link {
+    color: var(--accent-blue);
+    background-color: rgb(47, 65, 76);
+    width: fit-content;
+    align-self: center;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+}
+
 main {
     grid-area: 1 / 2 / span 1 / span 1;
     width: 100%;
@@ -149,7 +173,7 @@ main {
     padding: 1rem 0 1rem 2rem;
 }
 
-.app-info {
+.app-info, .registration-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -157,10 +181,15 @@ main {
     margin: auto;
 }
 
-.app-info > * {
+.app-info > *, .registration-info > * {
     max-width: 500px;
     text-align: center;
     margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.app-info > p {
+    color: var(--accent-blue);
 }
 
 .info-header {
@@ -197,11 +226,16 @@ main {
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
-    color: var(--darkest--blue);
-    background-color: var(--accent-blue);
+    color: var(--accent-blue);
+    background-color: rgb(47, 65, 76);
     margin: 0 2rem;
     padding: 0.5rem 1rem;
     border-radius: 0.75rem;
+}
+
+.active-tab {
+    color: var(--darkest--blue);
+    background-color: var(--accent-blue);
 }
 
 .tab {
