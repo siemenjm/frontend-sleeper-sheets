@@ -82,6 +82,8 @@ form {
     font-size: 1.3rem;
     margin-bottom: 3rem;
     width: 250px;
+    display: flex;
+    flex-direction: column;
 }
 
 form input {
@@ -97,6 +99,8 @@ form input:focus-visible {
 }
 
 form > button {
+    width: fit-content;
+    align-self: center;
     color: var(--darkest--blue);
     background-color: var(--accent-blue);
     border: none;
