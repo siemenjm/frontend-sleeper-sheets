@@ -6,7 +6,7 @@ import UserForm from "./UserForm";
 
 export default function Sidebar(props) {
     const { BASE_URL, currentUser, logoutUser, sleeperUser, setSleeperUser } = useContext(Context);
-
+    console.log(currentUser);
     // const USER_URL = `${BASE_URL}user/`;
     
     // const initUserForm = {username: ''};
@@ -36,19 +36,6 @@ export default function Sidebar(props) {
     //     }
     // }
 
-    async function getSleeperUser(sleeperName) {
-        console.log('running getSleeperUser');
-        const URL = `https://api.sleeper.app/v1/user/${sleeperName}`;
-        try {
-            const response = await fetch(URL);
-            const sleeperUserData = await response.json();
-
-            setSleeperUser(sleeperUserData);
-        } catch(err) {
-            console.log(err);
-        }
-    }
-
     function handleClick(e) {
         window.location.href='/';
     }
@@ -63,12 +50,7 @@ export default function Sidebar(props) {
                 <Link to='/' onClick={handleClick}>
                     <h1 className="app-name">Sleeper Sheets</h1>
                 </Link>
-                {/* <UserForm
-                    handleSubmit={handleSubmit}
-                    handleChange={handleChange}
-                    userForm={userForm}
-                /> */}
-                {currentUser ? <User currentUser={currentUser} handleLogout={logoutUser}/> : ''}
+                <User />
             </div>
         </>
     );

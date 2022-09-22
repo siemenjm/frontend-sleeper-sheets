@@ -15,7 +15,6 @@ export default function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [sleeperUser, setSleeperUser] = useState(null);
     const [league, setLeague] = useState(null);
-    const [subPage, setSubPage] = useState('matchup/');
     const [weeklyData, setWeeklyData] = useState({
         weeklyStats: null,
         WeeklyProj: null
@@ -101,7 +100,7 @@ export default function App() {
             };
             const response = await fetch("http://localhost:4000/auth/login", configs);
             const user = await response.json();
-
+            console.log(user);
             
 
             setUserToken(user.token);
@@ -129,6 +128,7 @@ export default function App() {
                   `http://localhost:4000/auth/user/${user.id}`, {headers: {"Authorization":`bearer ${token}`}}
                 );
                 const foundUser = await response.json();
+                console.log(foundUser);
                 setCurrentUser(foundUser);
                 setIsAuthenticated(true);
             } else {
@@ -170,8 +170,6 @@ export default function App() {
                 setSleeperUser,
                 league,
                 setLeague,
-                subPage,
-                setSubPage,
                 weeklyData }}>
                 <Sidebar />
                 <Main />

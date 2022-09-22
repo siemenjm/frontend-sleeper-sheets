@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { Context } from "context/Context";
 
 export default function League({league, setLeague, subPage}) {
-    const { user } = useContext(Context);
+    const { sleeperUser } = useContext(Context);
     
     function handleClick(e) {
         setLeague(league);
@@ -12,7 +12,7 @@ export default function League({league, setLeague, subPage}) {
 
     return ( 
         <div className="league">
-            <Link onClick={handleClick} to={`/user/${user.user_id}/league/${league.league_id}/${subPage}`}>
+            <Link onClick={handleClick} to={`/user/${sleeperUser.user_id}/league/${league.league_id}/matchup`}>
                 <Avatar avatar={league.avatar} type='league'/>
                 <p className="league-name">{league.name}</p>
             </Link>

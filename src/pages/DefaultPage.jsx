@@ -2,9 +2,10 @@ import LoginForm from "components/LoginForm";
 import RegisterForm from "components/RegisterForm";
 import { Context } from "context/Context";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 export default function DefaultPage(props) {
-    const { loginUser, registerUser, setSleeperName } = useContext(Context);
+    const { loginUser, registerUser, setSleeperName, logoutUser } = useContext(Context);
 
     return (
         <div className="default-page">
@@ -18,6 +19,7 @@ export default function DefaultPage(props) {
                 <p>Don't yet have an account? Fill out the form below to get registered!</p>
             </div>
             <RegisterForm signal={registerUser}/>
+            <Link onClick={logoutUser} to='/'>Logout</Link>
         </div>
     );
 }

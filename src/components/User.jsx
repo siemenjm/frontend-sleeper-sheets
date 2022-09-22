@@ -1,39 +1,53 @@
+import { Context } from "context/Context";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Avatar from "./Avatar";
 import UserLeagues from "./UserLeagues";
 
-export default function User({ currentUser, handleLogout }) {
-    console.log(currentUser);    
-    function loading() {
-        return (
-            <>
-                <p>Loading user data...</p>
-            </>
-        );
+export default function User(props) {
+    const { currentUser, sleeperUser, setSleeperUser, logoutUser } = useContext(Context);
+    console.log(currentUser);
+    console.log(sleeperUser);
+    
+    async function getSleeperUser() {
+        console.log(currentUser.sleeperName);
+        const URL = `https://api.sleeper.app/v1/user/${currentUser.sleeperName}`;
+        try {
+            const response = await fetch(URL);
+            const sleeperUserData = await response.json();
+            console.log(sleeperUserData);
+
+            setSleeperUser(sleeperUserData);
+        } catch(err) {
+            console.log(err);
+        }
     }
 
-    function loaded() {
-        return (
-            <>
-                <div className="user-info">
-                    <h2>Current User</h2>
-                    <div>
-                        <Avatar avatar={currentUser.avatar} type='user' />
-                        <p className="username">{currentUser.username}</p>
-                    </div>
-                </div>
-                <div className="league-info">
-                    <h2>Current Leagues</h2>
-                    <UserLeagues userId={currentUser.user_id}/>
-                </div>
-                <Link onClick={handleLogout} to='/'>Logout {currentUser._id}</Link>
-            </>
-        );
+    useEffect(() => {
+        getSleeperUser();
+    }, []);
+
+    if (!sleeperUser) {
+        return <h2>No user with that Sleeper App username...</h2>
+        // add button to change your sleeper app username here
     }
-    
-    return ( 
+
+    console.log(sleeperUser);
+
+    return (
         <>
-            {currentUser ? loaded() : loading()}
+            <div className="user-info">
+                <h2>Current User</h2>
+                <div>
+                    <Avatar avatar={sleeperUser.avatar} type='user' />
+                    <p className="username">{sleeperUser.username}</p>
+                </div>
+            </div>
+            <div className="league-info">
+                <h2>Current Leagues</h2>
+                <UserLeagues />
+            </div>
+            <Link onClick={logoutUser} to='/'>Logout {sleeperUser.username}</Link>
         </>
     );
 }
