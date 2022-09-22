@@ -206,11 +206,16 @@ main {
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
-    color: var(--darkest--blue);
-    background-color: var(--accent-blue);
+    color: var(--accent-blue);
+    background-color: rgb(47, 65, 76);
     margin: 0 2rem;
     padding: 0.5rem 1rem;
     border-radius: 0.75rem;
+}
+
+.active-tab {
+    color: var(--darkest--blue);
+    background-color: var(--accent-blue);
 }
 
 .tab {
