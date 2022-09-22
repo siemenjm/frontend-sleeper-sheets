@@ -4,7 +4,7 @@ import { Context } from "context/Context";
 import { useContext } from "react";
 
 export default function DefaultPage(props) {
-    const { loginUser, registerUser, setSleeperName, logoutUser } = useContext(Context);
+    const { loginUser, registerUser } = useContext(Context);
 
     return (
         <div className="default-page">
