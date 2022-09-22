@@ -144,12 +144,16 @@ export default function App() {
         console.log('updating user info in App');
         getUser();
         getWeeklyData();
-    }, []);
+    }, [currentUser?._id]);
 
     function logoutUser() {
+        console.log('clicked logout');
         clearUserToken();
         setCurrentUser(null);
         setIsAuthenticated(false);
+        setSleeperUser(null);
+        setLeague(null);
+        setWeeklyData(null);
     }
 
     return (

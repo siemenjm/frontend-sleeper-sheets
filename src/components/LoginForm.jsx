@@ -4,10 +4,11 @@ import { useNavigate } from "react-router";
 export default function LoginForm({ signal, sleeperUser, getSleeperUser }) {
     const navigate = useNavigate();
 
-    const [userInput, setUserInput] = useState({
+    const initFormState = {
         email: '',
         password: '',
-    });
+    };
+    const [userInput, setUserInput] = useState(initFormState);
 
     function handleChange(e) {
         setUserInput({ ...userInput, [e.target.name]: e.target.value });
@@ -16,8 +17,11 @@ export default function LoginForm({ signal, sleeperUser, getSleeperUser }) {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
+            console.log(userInput);
             const authResponse = await signal(userInput);
             console.log(authResponse);
+
+            setUserInput(initFormState);
 
             // const sleeperUserData = await getSleeperUser(authResponse.user.sleeperName);
             // console.log(sleeperUserData);
