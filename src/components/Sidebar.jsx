@@ -5,7 +5,7 @@ import User from "./User";
 import UserForm from "./UserForm";
 
 export default function Sidebar(props) {
-    const { BASE_URL, currentUser, logoutUser } = useContext(Context);
+    const { BASE_URL, currentUser, logoutUser, sleeperUser, setSleeperUser } = useContext(Context);
 
     // const USER_URL = `${BASE_URL}user/`;
     
@@ -36,8 +36,25 @@ export default function Sidebar(props) {
     //     }
     // }
 
+    async function getSleeperUser(sleeperName) {
+        console.log('running getSleeperUser');
+        const URL = `https://api.sleeper.app/v1/user/${sleeperName}`;
+        try {
+            const response = await fetch(URL);
+            const sleeperUserData = await response.json();
+
+            setSleeperUser(sleeperUserData);
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
     function handleClick(e) {
         window.location.href='/';
+    }
+
+    if (!currentUser) {
+        return;
     }
 
     return (

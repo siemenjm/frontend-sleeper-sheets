@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-export default function LoginForm({ signal }) {
+export default function LoginForm({ signal, sleeperUser, getSleeperUser }) {
     const navigate = useNavigate();
 
     const [userInput, setUserInput] = useState({
@@ -18,7 +18,13 @@ export default function LoginForm({ signal }) {
         try {
             const authResponse = await signal(userInput);
             console.log(authResponse);
-            navigate('/user/', { replace: true }); // need to change route
+
+            // const sleeperUserData = await getSleeperUser(authResponse.user.sleeperName);
+            // console.log(sleeperUserData);
+
+            // navigate(`/user/`, { replace: true }); // need to change route
+            // console.log(sleeperUser);
+            // navigate(`/user/sleeperUserData.username/league/012345/`, { replace: true }); // need to change route
         } catch(err) {
             console.log('Failed to log in');
             navigate('/', { replace: true })

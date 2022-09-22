@@ -13,6 +13,7 @@ export default function App() {
     // const [user, setUser] = useState(null);
     const [currentUser, setCurrentUser] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [sleeperUser, setSleeperUser] = useState(null);
     const [league, setLeague] = useState(null);
     const [subPage, setSubPage] = useState('matchup/');
     const [weeklyData, setWeeklyData] = useState({
@@ -101,6 +102,8 @@ export default function App() {
             const response = await fetch("http://localhost:4000/auth/login", configs);
             const user = await response.json();
 
+            
+
             setUserToken(user.token);
             setCurrentUser(user.user);
             setIsAuthenticated(user.isLoggedIn);
@@ -163,6 +166,8 @@ export default function App() {
                 loginUser,
                 registerUser,
                 logoutUser,
+                sleeperUser,
+                setSleeperUser,
                 league,
                 setLeague,
                 subPage,

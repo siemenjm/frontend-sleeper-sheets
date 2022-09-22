@@ -46,11 +46,12 @@ body {
     max-height: 100%;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: 1fr;
 }
 
 .sidebar {
+    width: 250px;
     background-color: var(--dark-blue);
     grid-area: 1 / 1 / span 1 / span 1;
     border: 1px solid var(--lighter-blue);
