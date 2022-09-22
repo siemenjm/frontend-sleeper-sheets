@@ -8,7 +8,7 @@ export default function UserLeagues(props) {
     const navigate = useNavigate();
     
     const [leagueList, setLeagueList] = useState(null);
-    const { sleeperUser, setLeague } = useContext(Context);
+    const { sleeperUser, league, setLeague } = useContext(Context);
 
     async function getLeagues(sleeperId) {
         const URL = `${BASE_URL}${sleeperId}/leagues/nfl/2022`;
@@ -33,8 +33,8 @@ export default function UserLeagues(props) {
         return <h2>Loading league data...</h2>;
     }
 
-    const displayedLeagues = leagueList.map((league) => {
-        return (<League league={league} setLeague={setLeague} key={league.league_id}/>);
+    const displayedLeagues = leagueList.map((singleLeague) => {
+        return (<League singleLeague={singleLeague} league={league} setLeague={setLeague} key={singleLeague.league_id}/>);
     });
 
     return ( 

@@ -141,6 +141,14 @@ form > button {
     text-align: right;
 }
 
+.active-league {
+    background-color: var(--lighter-blue);
+}
+
+.active-league > a > p {
+    color: var(--accent-blue);
+}
+
 main {
     grid-area: 1 / 2 / span 1 / span 1;
     width: 100%;
