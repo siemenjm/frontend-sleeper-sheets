@@ -10,7 +10,6 @@ const BASE_URL = 'https://api.sleeper.app/v1/';
 const DB_URL = 'http://localhost:4000';
 
 export default function App() {
-    // const [user, setUser] = useState(null);
     const [currentUser, setCurrentUser] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [sleeperUser, setSleeperUser] = useState(null);
@@ -73,7 +72,6 @@ export default function App() {
             );
 
             const parsedUser = await newUser.json();
-            console.log(parsedUser);
 
             setUserToken(parsedUser.token);
             setCurrentUser(parsedUser.user);
@@ -100,9 +98,7 @@ export default function App() {
             };
             const response = await fetch("http://localhost:4000/auth/login", configs);
             const user = await response.json();
-            console.log(user);
             
-
             setUserToken(user.token);
             setCurrentUser(user.user);
             setIsAuthenticated(user.isLoggedIn);
@@ -121,14 +117,11 @@ export default function App() {
         const token = getUserToken();
         try {
             if (token) {
-                console.log(token)
                 const user = decode(token);
-                console.log(user);
                 const response = await fetch(
                   `http://localhost:4000/auth/user/${user.id}`, {headers: {"Authorization":`bearer ${token}`}}
                 );
                 const foundUser = await response.json();
-                console.log(foundUser);
                 setCurrentUser(foundUser);
                 setIsAuthenticated(true);
             } else {
@@ -141,13 +134,11 @@ export default function App() {
     }
 
     useEffect(() => {
-        console.log('updating user info in App');
         getUser();
         getWeeklyData();
     }, [currentUser?._id]);
 
     function logoutUser() {
-        console.log('clicked logout');
         clearUserToken();
         setCurrentUser(null);
         setIsAuthenticated(false);

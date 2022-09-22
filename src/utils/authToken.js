@@ -7,7 +7,6 @@ const setUserToken = (token) => {
 }
 
 const clearUserToken = () => {
-    console.log('clearing token', localStorage.getItem('token'));
   return localStorage.setItem('token', '');
 }
 
