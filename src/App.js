@@ -7,7 +7,8 @@ import { setUserToken, clearUserToken, getUserToken } from './utils/authToken';
 import decode from 'jwt-decode';
 
 const BASE_URL = 'https://api.sleeper.app/v1/';
-const DB_URL = 'https://backend-sleeper-sheets.herokuapp.com/';
+// const DB_URL = 'https://backend-sleeper-sheets.herokuapp.com/';
+const DB_URL = 'http://localhost:4000/';
 
 export default function App() {
     const [currentUser, setCurrentUser] = useState(null);
@@ -98,6 +99,7 @@ export default function App() {
             };
             const response = await fetch(`${DB_URL}auth/login`, configs);
             const user = await response.json();
+            console.log(user);
             
             setUserToken(user.token);
             setCurrentUser(user.user);
@@ -118,10 +120,12 @@ export default function App() {
         try {
             if (token) {
                 const user = decode(token);
+                console.log(user);
                 const response = await fetch(
                   `${DB_URL}auth/user/${user.id}`, {headers: {"Authorization":`bearer ${token}`}}
                 );
                 const foundUser = await response.json();
+                console.log(foundUser);
                 setCurrentUser(foundUser);
                 setIsAuthenticated(true);
             } else {
@@ -136,7 +140,8 @@ export default function App() {
     useEffect(() => {
         getUser();
         getWeeklyData();
-    }, [currentUser?._id]);
+        console.log('running in app');
+    }, [currentUser?._id, currentUser?.sleeperName]);
 
     function logoutUser() {
         clearUserToken();

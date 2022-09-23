@@ -1,14 +1,26 @@
 import { Context } from "context/Context";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Avatar from "./Avatar";
+import EditSleeperForm from "./EditSleeperForm";
 import UserLeagues from "./UserLeagues";
 
 export default function User(props) {
-    const { currentUser, sleeperUser, setSleeperUser, logoutUser } = useContext(Context);
+    const { currentUser, setCurrentUser, sleeperUser, setSleeperUser, logoutUser } = useContext(Context);
+    const [editSleeperForm, setEditSleeperForm] = useState(null);
+
+    console.log(currentUser);
+    console.log(sleeperUser);
+
+    function showEditSleeperForm() {
+        setEditSleeperForm({ ...editSleeperForm, sleeperName: sleeperUser.username });
+    }
     
-    async function getSleeperUser() {
-        const URL = `https://api.sleeper.app/v1/user/${currentUser.sleeperName}`;
+    async function getSleeperUser(user) {
+        console.log('in sleeper user');
+        console.log(user.sleeperName);
+        const URL = `https://api.sleeper.app/v1/user/${user.sleeperName}`;
+        console.log(URL);
         try {
             const response = await fetch(URL);
             const sleeperUserData = await response.json();
@@ -20,7 +32,7 @@ export default function User(props) {
     }
 
     useEffect(() => {
-        getSleeperUser();
+        getSleeperUser(currentUser);
     }, []);
 
     if (!sleeperUser) {
@@ -34,9 +46,13 @@ export default function User(props) {
                 <h2>Current User</h2>
                 <div>
                     <Avatar avatar={sleeperUser.avatar} type='user' />
-                    <p className="username">{sleeperUser.username}</p>
+                    <div>
+                        <p className="username">{sleeperUser.username}</p>
+                        <p onClick={showEditSleeperForm}>Change Username</p>
+                    </div>
                 </div>
             </div>
+            {editSleeperForm ? <EditSleeperForm editSleeperForm={editSleeperForm} setEditSleeperForm={setEditSleeperForm} getSleeperUser={getSleeperUser} setCurrentUser={setCurrentUser}/> : ''}
             <div className="league-info">
                 <h2>Current Leagues</h2>
                 <UserLeagues />

@@ -122,6 +122,15 @@ form > button {
     align-items: center;
 }
 
+.user-info > div > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info .username {
+    margin-bottom: 1rem;
+}
+
 .league-list {
     margin-top: 1rem;
 }
