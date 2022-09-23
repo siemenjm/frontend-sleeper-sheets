@@ -86,12 +86,18 @@ form {
     flex-direction: column;
 }
 
+.edit-sleeper-form {
+    width: 100%;
+}
+
 form input {
     font-size: 1.3rem;
     color: var(--darkest--blue);
     width: 100%;
     margin-bottom: 1rem;
     border: 1px solid var(--blue);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
 }
 
 form input:focus-visible {
@@ -127,6 +133,15 @@ form > button {
     flex-direction: column;
 }
 
+.user-info > div > div > p:last-child {
+    color: var(--accent-blue);
+    background-color: rgb(47, 65, 76);
+    width: fit-content;
+    align-self: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+}
+
 .user-info .username {
     margin-bottom: 1rem;
 }
@@ -160,7 +175,7 @@ form > button {
 }
 
 .active-league {
-    background-color: var(--lighter-blue);
+    background-color: rgb(47, 65, 76);
 }
 
 .active-league > a > p {
