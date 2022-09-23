@@ -147,6 +147,10 @@ form > button, .delete-no-btn {
     border-radius: 0.75rem;
 }
 
+.user-info .user-settings:last-child {
+    margin-left: 0.5rem;
+}
+
 .user-info .username {
     margin-bottom: 1rem;
 }
