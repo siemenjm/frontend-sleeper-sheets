@@ -2,15 +2,21 @@ import { Context } from "context/Context";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Avatar from "./Avatar";
+import DeleteMessage from "./DeleteMessage";
 import EditSleeperForm from "./EditSleeperForm";
 import UserLeagues from "./UserLeagues";
 
 export default function User(props) {
     const { currentUser, setCurrentUser, sleeperUser, setSleeperUser, logoutUser } = useContext(Context);
     const [editSleeperForm, setEditSleeperForm] = useState(null);
+    const [deleteMessage, setDeleteMessage] = useState(null);
 
     function showEditSleeperForm() {
         setEditSleeperForm({ ...editSleeperForm, sleeperName: sleeperUser.username });
+    }
+
+    function showDeleteMessage() {
+        setDeleteMessage(true);
     }
     
     async function getSleeperUser(user) {
@@ -31,7 +37,6 @@ export default function User(props) {
 
     if (!sleeperUser) {
         return <h2>No user with that Sleeper App username...</h2>
-        // add button to change your sleeper app username here
     }
 
     return (
@@ -42,11 +47,15 @@ export default function User(props) {
                     <Avatar avatar={sleeperUser.avatar} type='user' />
                     <div>
                         <p className="username">{sleeperUser.username}</p>
-                        <p onClick={showEditSleeperForm}>Change Username</p>
+                        <div className="user-settings-container">
+                            <p className="user-settings" onClick={showEditSleeperForm}>Edit</p>
+                            <p className="user-settings" onClick={setDeleteMessage}>Delete</p>
+                        </div>
                     </div>
                 </div>
             </div>
             {editSleeperForm ? <EditSleeperForm editSleeperForm={editSleeperForm} setEditSleeperForm={setEditSleeperForm} getSleeperUser={getSleeperUser} setCurrentUser={setCurrentUser}/> : ''}
+            {deleteMessage ? <DeleteMessage setDeleteMessage={setDeleteMessage} logoutUser={logoutUser}/> : ''}
             <div className="league-info">
                 <h2>Current Leagues</h2>
                 <UserLeagues />

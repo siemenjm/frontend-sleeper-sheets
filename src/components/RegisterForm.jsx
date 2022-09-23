@@ -19,10 +19,8 @@ export default function RegisterForm({ signal }) {
         e.preventDefault();
         try {
             const authResponse = await signal(userInput);
-            console.log(authResponse);
 
             setUserInput(initFormState);
-            // navigate('/user/', { replace: true }); // need to change route
         } catch(err) {
             console.log('Failed to log in');
             navigate('/', { replace: true })

@@ -104,7 +104,7 @@ form input:focus-visible {
     outline: 1px solid var(--accent-blue);
 }
 
-form > button {
+form > button, .delete-no-btn {
     width: fit-content;
     align-self: center;
     color: var(--darkest--blue);
@@ -133,7 +133,12 @@ form > button {
     flex-direction: column;
 }
 
-.user-info > div > div > p:last-child {
+.user-setting-container {
+    display: flex;
+}
+
+.user-info .user-settings {
+    display: inline-block;
     color: var(--accent-blue);
     background-color: rgb(47, 65, 76);
     width: fit-content;
@@ -144,6 +149,21 @@ form > button {
 
 .user-info .username {
     margin-bottom: 1rem;
+}
+
+.delete-message-container > div {
+    display: flex;
+    margin: 1rem 0 2rem 0;
+    justify-content: space-around;
+}
+
+.delete-user-form {
+    width: fit-content;
+    margin: 0;
+}
+
+.delete-yes-btn, .delete-no-btn {
+    width: 5rem;
 }
 
 .league-list {
