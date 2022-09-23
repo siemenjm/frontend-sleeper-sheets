@@ -20,7 +20,6 @@ export default function DeleteMessage({ setDeleteMessage, logoutUser }) {
 
             const response = await fetch(URL, options);
             const deletedUser = await response.json();
-            console.log(deletedUser);
 
             navigate('/');
             logoutUser();
