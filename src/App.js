@@ -99,7 +99,6 @@ export default function App() {
             };
             const response = await fetch(`${DB_URL}auth/login`, configs);
             const user = await response.json();
-            console.log(user);
             
             setUserToken(user.token);
             setCurrentUser(user.user);
@@ -120,12 +119,10 @@ export default function App() {
         try {
             if (token) {
                 const user = decode(token);
-                console.log(user);
                 const response = await fetch(
                   `${DB_URL}auth/user/${user.id}`, {headers: {"Authorization":`bearer ${token}`}}
                 );
                 const foundUser = await response.json();
-                console.log(foundUser);
                 setCurrentUser(foundUser);
                 setIsAuthenticated(true);
             } else {
@@ -140,7 +137,6 @@ export default function App() {
     useEffect(() => {
         getUser();
         getWeeklyData();
-        console.log('running in app');
     }, [currentUser?._id, currentUser?.sleeperName]);
 
     function logoutUser() {

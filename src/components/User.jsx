@@ -9,18 +9,12 @@ export default function User(props) {
     const { currentUser, setCurrentUser, sleeperUser, setSleeperUser, logoutUser } = useContext(Context);
     const [editSleeperForm, setEditSleeperForm] = useState(null);
 
-    console.log(currentUser);
-    console.log(sleeperUser);
-
     function showEditSleeperForm() {
         setEditSleeperForm({ ...editSleeperForm, sleeperName: sleeperUser.username });
     }
     
     async function getSleeperUser(user) {
-        console.log('in sleeper user');
-        console.log(user.sleeperName);
         const URL = `https://api.sleeper.app/v1/user/${user.sleeperName}`;
-        console.log(URL);
         try {
             const response = await fetch(URL);
             const sleeperUserData = await response.json();

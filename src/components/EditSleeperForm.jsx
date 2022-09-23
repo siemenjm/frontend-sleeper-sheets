@@ -12,7 +12,6 @@ export default function EditSleeperForm({ editSleeperForm, setEditSleeperForm, g
         e.preventDefault();
         try {
             const URL = `${DB_URL}users/${currentUser._id}`;
-            console.log(URL);
             const options = {
                 method: 'PUT',
                 headers: {
