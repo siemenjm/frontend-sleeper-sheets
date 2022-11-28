@@ -8,7 +8,7 @@ Sleeper Sheets is a full-stack MERN fantasy football application that consumes t
 
 [Sleeper Sheets - Netlify Deployment](https://funny-dango-f7628e.netlify.app/)
 
-[Sleeper Sheets - Heroku Deployment](https://backend-sleeper-sheets.herokuapp.com/)
+[Sleeper Sheets - Fly.io Deployment](https://sleeper-sheets.fly.dev/)
 
 <img src="./readme_screenshots/main_page.png" alt="Main Page">
 
