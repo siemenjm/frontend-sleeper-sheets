@@ -7,8 +7,7 @@ import { setUserToken, clearUserToken, getUserToken } from './utils/authToken';
 import decode from 'jwt-decode';
 
 const BASE_URL = 'https://api.sleeper.app/v1/';
-// const DB_URL = 'https://backend-sleeper-sheets.herokuapp.com/';
-const DB_URL = 'https://backend-sleeper-sheets.herokuapp.com/';
+const DB_URL = 'https://sleeper-sheets.fly.dev/';
 
 export default function App() {
     const [currentUser, setCurrentUser] = useState(null);
